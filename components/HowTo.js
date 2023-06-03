@@ -219,8 +219,8 @@ const HowTo = (props) => {
 
   return (
     <div className={props.support ? styles.howtosupport : styles.howto}>
-      {/* <div className={styles.title}>How to recycle</div>
-      <div className={styles.input}>
+      <div className={styles.title}>Adoptar</div>
+      {/* <div className={styles.input}>
         <img src="search.svg" className={styles.search} />
         {searchField.length > 0 && (
           <img

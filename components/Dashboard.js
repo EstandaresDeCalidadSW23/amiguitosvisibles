@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./../styles/Dashboard.module.css";
 import HowTo from "./HowTo";
+import HowToToAdop from "./HowToToAdop";
 
 const Dashboard = (props) => {
   const [support, setSupport] = useState(true);
@@ -73,7 +74,7 @@ const Dashboard = (props) => {
         </a>
       )}
       <div className={styles.nav}>
-        <div className={styles.header}>Amiguitos</div>
+        <div className={styles.header}>Dashboard</div>
         {/* <div className={styles.headerWallet}>Dxcxcxc..</div> */}
         <div className={styles.right}>
           <img
@@ -103,7 +104,10 @@ const Dashboard = (props) => {
           <div className={styles.title}>De manera responsable</div>
         </div>
       )}
-      <HowTo support={support} setAmiguito={props.setAmiguito} />
+      <div className={styles.howToScroll}>
+        <HowToToAdop support={support} setAmiguito={props.setAmiguito} />
+        <HowTo support={support} setAmiguito={props.setAmiguito} />
+      </div>
       <div className={styles.button} onClick={() => props.setRefugios(true)}>
         Donar a un refugio. ❤️
       </div>

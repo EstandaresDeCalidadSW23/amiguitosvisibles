@@ -163,3 +163,8 @@
 	width: 20px;
 	vertical-align: middle;
 }
+
+.howToScroll {
+	height: calc(100% - 260px);
+	overflow-y: scroll;
+}
