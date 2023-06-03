@@ -38,7 +38,7 @@ const Dashboard = (props) => {
     }
   }, []);
 
-  const handleSupport = (e) => {    
+  const handleSupport = (e) => {
     e.stopPropagation();
     e.preventDefault();
     e.nativeEvent.stopImmediatePropagation();
@@ -67,13 +67,13 @@ const Dashboard = (props) => {
           <div className={styles.supportinfo}>
             <div className={styles.supporttitle}>Solana Hackathon GDL</div>
             <div className={styles.supportdesc}>
-              ¡Vamos a ganar este hackathon! #SolanaHackathon #SHYFT
+              ¡Vamos a por ese premio! #SolanaHackathon #SHYFT
             </div>
           </div>
         </a>
       )}
       <div className={styles.nav}>
-        <div className={styles.header}>Dashboard</div>
+        <div className={styles.header}>Amiguitos en adopción</div>
         <div className={styles.right}>
           <img
             src="settings.svg"
@@ -98,14 +98,13 @@ const Dashboard = (props) => {
       ) : (
         <div className={styles.callout} onClick={() => props.setView(true)}>
           <img src="decoration.svg" />
-          <div className={styles.pretitle}>Start recycling</div>
-          <div className={styles.title}>Scan a plastic item</div>
+          <div className={styles.pretitle}>Dar en adopcion</div>
+          <div className={styles.title}>De manera responsable</div>
         </div>
       )}
       <HowTo support={support} />
-      <div className={styles.button} onClick={() => props.setView(true)}>
-        <img src="scanmore.svg" />
-        Donar a un refugio.
+      <div className={styles.button} onClick={() => props.setRefugios(true)}>
+        Donar a un refugio. ❤️
       </div>
     </div>
   );

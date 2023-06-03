@@ -32,12 +32,8 @@ const Desktop = (props) => {
           <div className={styles.name}>Amiguitos Visibles</div>
           <div className={styles.credit}>
             Made by{" "}
-            <a href="https://www.linkedin.com/in/leonorfurtado" target="_blank">
-              Leo
-            </a>{" "}
-            &{" "}
-            <a href="https://twitter.com/alyssaxuu/" target="_blank">
-              Alyssa X
+            <a href="https://www.delicias.tecnm.mx/" target="_blank">
+              ITD with ❤️
             </a>
           </div>
         </div>
