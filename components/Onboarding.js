@@ -19,7 +19,7 @@ const Onboarding = (props) => {
           props.setOn(false);
         }}
       >
-        Skip
+        Saltar
       </div>
       {step === 1 && (
         <div className={styles.image}>
@@ -57,30 +57,27 @@ const Onboarding = (props) => {
         </div>
         {step === 1 && (
           <div>
-            <div className={styles.text}>Take a picture of the </div>
+            <div className={styles.text}>Transparencia y verificación</div>
             <div className={styles.subtitle}>
-              Look for a tiny triangle with a number inside it from 1 to 7. Keep
-              it in the center of the camera for best results.
+              La tecnología blockchain asegura un registro transparente y seguro de perfiles de las mascotas, registros médicos y transacciones de adopción, evitando fraudes y generando confianza en los adoptantes potenciales.
             </div>
           </div>
         )}
         {step === 2 && (
           <div>
-            <div className={styles.text}>Did the AI get it right?</div>
+            <div className={styles.text}>Seguimiento</div>
             <div className={styles.subtitle}>
-              After taking a picture, we will ask you if the AI recognised your
-              code. If it’s not right, you can teach the AI.
+              El seguimiento completo de las adopciones a lo largo del tiempo se logra gracias a la inmutabilidad de la cadena de bloques. Los adoptantes y los refugios pueden registrar actualizaciones, fotos y detalles sobre el bienestar de los perros adoptados.
             </div>
           </div>
         )}
         {step === 3 && (
           <div>
             <div className={styles.text}>
-              Learn how to recycle your plastic item
+              Responsabilidad
             </div>
             <div className={styles.subtitle}>
-              You’ll learn if the item is recyclable or not, and how you should
-              dispose of it.
+              Fomentando así la responsabilidad y la transparencia. Esta comunidad comprometida se preocupa por el cuidado y el bienestar de nuestros amiguitos ❤️.
             </div>
           </div>
         )}
@@ -98,7 +95,7 @@ const Onboarding = (props) => {
               props.setViewInfoUser(true);
             }}
           >
-            Start recycling
+            Tomar acción
           </div>
         )}
       </div>

@@ -15,7 +15,7 @@ const RegionSelect = (props) => {
   return (
     <div className={styles.regionselect}>
       <div className={styles.title}>Queremos brindarte la mejor experiencia</div>
-      <div className={styles.subtitle}>Rellena los siguientes campos para poder brindarte la mejor experiencia.</div>
+      <div className={styles.subtitle}>Rellena los siguientes campos para poder hacer el match perfecto</div>
       <div className={styles.formContainer}>
         <div className={styles.title}>Si pudieras ser un animal salvaje por un día, ¿cuál elegirías y por qué te identificas con él?</div>
         <div className={styles.input}>

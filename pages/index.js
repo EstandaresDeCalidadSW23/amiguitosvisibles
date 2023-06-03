@@ -44,7 +44,7 @@ export default function Home() {
         />
         <meta
           name="description"
-          content="EcoSnap is an Artificial Intelligence powered app that helps you recycle your plastic effectively. It tells you what, how and where to recycle from a picture."
+          content="Uniendo lazos perfectos entre mascotas y adoptantes, encontrando la combinación ideal en cada latido de corazón."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ecosnap.vercel.app/" />
@@ -54,7 +54,7 @@ export default function Home() {
         />
         <meta
           property="og:description"
-          content="EcoSnap is an Artificial Intelligence powered app that helps you recycle your plastic effectively. It tells you what, how and where to recycle from a picture."
+          content="Uniendo lazos perfectos entre mascotas y adoptantes, encontrando la combinación ideal en cada latido de corazón."
         />
         <meta
           property="og:image"
@@ -68,7 +68,7 @@ export default function Home() {
         />
         <meta
           property="twitter:description"
-          content="EcoSnap is an Artificial Intelligence powered app that helps you recycle your plastic effectively. It tells you what, how and where to recycle from a picture."
+          content="Uniendo lazos perfectos entre mascotas y adoptantes, encontrando la combinación ideal en cada latido de corazón."
         />
         <meta
           property="twitter:image"

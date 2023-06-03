@@ -71,6 +71,7 @@
 
 .share:hover,
 .github:hover,
+.youtube:hover,
 .credit a:hover {
 	opacity: .6;
 	cursor: pointer;
@@ -86,6 +87,21 @@
 }
 
 .github img {
+	vertical-align: middle;
+	margin-top: -3px;
+	margin-right: 2px;
+}
+
+.youtube {
+	position: absolute;
+	left: 290px;
+	top: 20px;
+	font-size: 14px;
+	font-weight: 500;
+	font-family: "DM Sans";
+}
+
+.youtube img {
 	vertical-align: middle;
 	margin-top: -3px;
 	margin-right: 2px;
@@ -137,12 +153,16 @@
 	box-shadow: 0px 0px 50px rgba(31, 31, 31, 0.1);
 }
 
-.image {}
+.image {
+	height: 70px;
+	width: 70px !important;
+}
 
 @media only screen and (max-width: 820px) {
 
 	.credit,
 	.github,
+	.youtube,
 	.share,
 	.qrcode,
 	.badge,

@@ -14,6 +14,7 @@
 	margin-left: 20px;
 	width: 80%;
 }
+
 .subtitle {
 	font-size: 14px;
 	color: #8C8C8C;
@@ -28,7 +29,9 @@
 .options {
 	margin-top: 30px;
 }
-.option, .optioncheck {
+
+.option,
+.optioncheck {
 	width: calc(100% - 40px);
 	margin-left: auto;
 	margin-right: auto;
@@ -41,21 +44,27 @@
 	margin-bottom: 20px;
 	position: relative;
 }
+
 .option:hover {
 	cursor: pointer;
 	background-color: #F5F5F5;
 }
+
 .optioncheck {
-	border: 1.5px solid #61AF2C;
+	border: 1.5px solid #ffd21e;
 }
-.option img, .optioncheck img {
+
+.option img,
+.optioncheck img {
 	position: absolute;
 	top: 20px;
 	right: 20px;
 }
+
 .name {
 	font-size: 16px;
 }
+
 .desc {
 	font-size: 14px;
 	margin-top: 15px;
@@ -63,7 +72,8 @@
 }
 
 /* Button */
-.button, .disabled {
+.button,
+.disabled {
 	position: absolute;
 	bottom: 15px;
 	left: 0px;
@@ -71,16 +81,18 @@
 	margin: auto;
 	height: 50px;
 	line-height: 50px;
-	background: #74AD42;
+	background: #ffd21e;
 	text-align: center;
 	border-radius: 10px;
 	font-size: 14px;
 	color: #FFF;
 	width: calc(100% - 40px);
 }
+
 .button:hover {
 	cursor: pointer;
 }
+
 .disabled {
 	opacity: .6;
 	pointer-events: none;

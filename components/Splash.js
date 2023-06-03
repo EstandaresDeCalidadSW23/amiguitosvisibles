@@ -97,7 +97,7 @@ const Splash = (props) => {
 			{!getStarted &&
 				<div className={styles.splash}>
 					<div className={styles.logo}>
-						<img src="logo.svg" />
+						<img src="icon.png" />
 						AmiguitosVisibles
 					</div>
 					<div className={styles.illustration}>

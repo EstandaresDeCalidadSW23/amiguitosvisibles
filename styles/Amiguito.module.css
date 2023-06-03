@@ -32,7 +32,7 @@
 	line-height: 50px;
 	padding-left: 10px;
 	padding-right: 10px;
-	background: #74AD42;
+	background: #FFD21E;
 	border-radius: 10px;
 	color: #FFF;
 	display: inline-block;
@@ -90,7 +90,7 @@
 }
 
 .optioncheck {
-	border: 1.5px solid #61AF2C;
+	border: 1.5px solid #FFD21E;
 }
 
 .option img,
@@ -120,7 +120,7 @@
 	margin: auto;
 	height: 50px;
 	line-height: 50px;
-	background: #74AD42;
+	background: #FFD21E;
 	text-align: center;
 	border-radius: 10px;
 	font-size: 14px;
