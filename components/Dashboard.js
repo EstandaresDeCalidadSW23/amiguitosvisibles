@@ -100,8 +100,8 @@ const Dashboard = (props) => {
       ) : (
         <div className={styles.callout} onClick={() => props.setView(true)}>
           <img src="decoration.svg" />
-          <div className={styles.pretitle}>Dar en adopción</div>
-          <div className={styles.title}>De manera responsable</div>
+          <div className={styles.pretitle}>Da en adopción</div>
+          <div className={styles.title}>De manera <span className={styles.callout23}>responsable</span></div>
         </div>
       )}
       <div className={styles.howToScroll}>

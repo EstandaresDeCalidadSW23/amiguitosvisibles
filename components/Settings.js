@@ -12,11 +12,8 @@ const Settings = (props) => {
 				{/* <div className={styles.item} onClick={() => props.setReset(true)}><span>Update region</span> <img src="enter.svg"/></div>
 				<div className={styles.item} onClick={() => props.setOn(true)}><span>View onboarding</span> <img src="enter.svg"/></div> */}
 				{/* <div className={styles.space}></div> */}
-				<a href="https://github.com/alyssaxuu/ecosnap" target="_blank" className={styles.item}><span>About this app</span> <img src="enter.svg" /></a>
-				<a href="https://github.com/alyssaxuu/ecosnap#credit" target="_blank" className={styles.item}><span>Acknowledgements</span> <img src="enter.svg" /></a>
-				<div className={styles.space}></div>
-				<a href="https://londonrecycles.co.uk" target="_blank" className={styles.item}><span>London Recycles</span> <img src="enter.svg" /></a>
-				<a href="https://recyclenow.com" target="_blank" className={styles.item}><span>Recycle Now</span> <img src="enter.svg" /></a>
+				<a href="https://github.com/alyssaxuu/ecosnap" target="_blank" className={styles.item}><span>Perfil</span> <img src="enter.svg" /></a>
+				<a href="https://hackathon.etherfuse.com/" target="_blank" className={styles.item}><span>Informacion de la Hackathon</span> <img src="enter.svg" /></a>
 				<div className={styles.space}></div>
 				<a href="mailto:hi@alyssax.com" target="_blank" className={styles.item}><span>Cerrar sesión</span> <img src="enter.svg" /></a>
 				<div className={styles.credit}>Made by{" "}

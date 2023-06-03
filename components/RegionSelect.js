@@ -16,15 +16,15 @@ const RegionSelect = (props) => {
 				<div className={option === 1 ? styles.optioncheck : styles.option} onClick={() => setOption(1)}>
 					<div className={styles.info}>
 						<img src={option === 1 ? "checked.svg" : "unchecked.svg"} />
-						<div className={styles.name}>❤️ Adoptante/</div>
-						<div className={styles.desc}>Eres una persona de gran corazón que quiere adoptar un animal</div>
+						<div className={styles.name}>❤️ Persona</div>
+						<div className={styles.desc}>Eres una persona de gran corazón que tiene gran amor por los animales</div>
 					</div>
 				</div>
 				<div className={option === 2 ? styles.optioncheck : styles.option} onClick={() => setOption(2)}>
 					<div className={styles.info}>
 						<img src={option === 2 ? "checked.svg" : "unchecked.svg"} />
-						<div className={styles.name}>⛺ Refugio</div>
-						<div className={styles.desc}>Eres un refugio que quiere dar en adopción a sus animales</div>
+						<div className={styles.name}>⛺ Refugio / Rescatista</div>
+						<div className={styles.desc}>Eres un refugio que quiere recibir ayuda para los animales que cuidas</div>
 					</div>
 				</div>
 			</div>

@@ -168,3 +168,7 @@
 	height: calc(100% - 260px);
 	overflow-y: scroll;
 }
+
+.callout23 {
+	display: block;
+}
