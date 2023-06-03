@@ -105,7 +105,7 @@
 	position: relative;
 }
 
-.input input {
+.input select {
 	background: #EEEEEE;
 	border-radius: 10px;
 	color: #000;
