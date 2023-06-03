@@ -73,7 +73,8 @@ const Dashboard = (props) => {
         </a>
       )}
       <div className={styles.nav}>
-        <div className={styles.header}>Amiguitos en adopción</div>
+        <div className={styles.header}>Amiguitos</div>
+        {/* <div className={styles.headerWallet}>Dxcxcxc..</div> */}
         <div className={styles.right}>
           <img
             src="settings.svg"
@@ -102,7 +103,7 @@ const Dashboard = (props) => {
           <div className={styles.title}>De manera responsable</div>
         </div>
       )}
-      <HowTo support={support} />
+      <HowTo support={support} setAmiguito={props.setAmiguito} />
       <div className={styles.button} onClick={() => props.setRefugios(true)}>
         Donar a un refugio. ❤️
       </div>

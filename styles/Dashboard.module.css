@@ -6,6 +6,7 @@
 	width: 100%;
 	overflow: hidden;
 }
+
 /* Support */
 .support {
 	position: relative;
@@ -16,32 +17,38 @@
 	display: block;
 	width: 100%;
 }
+
 .supportimg {
 	display: inline-block;
 	vertical-align: middle;
 	margin-left: 20px;
 }
+
 .supportinfo {
 	vertical-align: middle;
 	margin-left: 20px;
 	display: inline-block;
 	width: 70%;
 }
+
 .supporttitle {
 	font-size: 16px;
 	font-family: "DM Sans";
 	font-weight: 500;
 }
+
 .supportdesc {
 	font-size: 14px;
 	margin-top: 5px;
 	font-family: "DM Sans";
 }
+
 .closesupport {
 	position: absolute;
 	right: 20px;
 	top: 20px;
 }
+
 .closesupport:hover {
 	cursor: pointer;
 }
@@ -52,24 +59,41 @@
 	width: 100%;
 	margin-top: 20px;
 }
+
 .header {
 	font-size: 20px;
 	margin-left: 20px;
 }
+
+.headerWallet {
+	font-size: 15px;
+	display: inline-block;
+	margin-left: 20px;
+	border-radius: 15px;
+	padding: 5px 10px;
+	background: #c4c4c4;
+}
+
 .right {
 	float: right;
 	margin-right: 20px;
 	margin-top: -22px;
 }
+
 .settings {
 	margin-right: 15px;
 }
-.settings, .help {
+
+.settings,
+.help {
 	vertical-align: middle;
 }
-.settings:hover, .help:hover {
+
+.settings:hover,
+.help:hover {
 	cursor: pointer;
 }
+
 /* Callout */
 .callout {
 	width: calc(100% - 40px);
@@ -83,15 +107,18 @@
 	height: 138px;
 	position: relative;
 }
-.callout:hover{
+
+.callout:hover {
 	cursor: pointer;
 }
+
 .callout img {
 	height: 100%;
 	position: absolute;
 	right: 0px;
 	top: 0px
 }
+
 .pretitle {
 	font-size: 18px;
 	margin-left: 20px;
@@ -100,6 +127,7 @@
 	font-weight: 500;
 	opacity: .6;
 }
+
 .title {
 	font-size: 24px;
 	margin-left: 20px;
@@ -124,9 +152,11 @@
 	color: #FFF;
 	width: calc(100% - 40px);
 }
+
 .button:hover {
 	cursor: pointer;
 }
+
 .button img {
 	margin-right: 8px;
 	margin-top: -5px;

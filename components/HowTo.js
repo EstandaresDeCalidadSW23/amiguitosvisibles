@@ -213,6 +213,10 @@ const HowTo = (props) => {
     setSearchField(e.target.value);
   };
 
+  const handleRefugioOnly = () => {
+    props.setAmiguito(true)
+  }
+
   return (
     <div className={props.support ? styles.howtosupport : styles.howto}>
       {/* <div className={styles.title}>How to recycle</div>
@@ -234,9 +238,8 @@ const HowTo = (props) => {
       <div className={props.support ? styles.resultssupport : styles.results}>
         {filteredItems.length > 0 ? (
           filteredItems.map((item, i) => (
-            <a
-              href={item.url}
-              target="_blank"
+            <p
+              onClick={handleRefugioOnly}
               className={styles.result}
               key={i}
             >
@@ -248,7 +251,7 @@ const HowTo = (props) => {
                 <div className={styles.name}>{item.name}</div>
                 <div className={styles.desc}>{item.description}</div>
               </div>
-            </a>
+            </p>
           ))
         ) : (
           <a

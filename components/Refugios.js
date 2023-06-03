@@ -2,10 +2,6 @@ import React, { useMemo, useState } from "react";
 import styles from "./../styles/Refugios.module.css";
 
 const Refugios = (props) => {
-  const [animal, setAnimal] = useState("");
-  const [breed, setBreed] = useState("");
-  const [size, setSize] = useState("");
-  const [temperament, setTemperament] = useState("");
   const [searchField, setSearchField] = useState("");
   const items = [
     {
@@ -219,19 +215,22 @@ const Refugios = (props) => {
 
 
   const handleContinue = () => {
-    props.setView(false)
+    props.setRefugios(false)
   }
 
-  const isAllFilled = useMemo(() => animal && breed && size && temperament, [animal, breed, size, temperament])
+  const handleRefugioOnly = () => {
+    props.setRefugiosOnly(true)
+    props.setRefugios(false)
+  }
+
   return (
     <div className={styles.regionselect}>
-      <div className={styles.title}>Ver refugios</div>
+      <div className={styles.title}>Refugios</div>
       <div className={styles.results}>
         {
           filteredItems.map((item, i) => (
-            <a
-              href={item.url}
-              target="_blank"
+            <p
+              onClick={handleRefugioOnly}
               className={styles.result}
               key={i}
             >
@@ -243,13 +242,13 @@ const Refugios = (props) => {
                 <div className={styles.name}>{item.name}</div>
                 <div className={styles.desc}>{item.description}</div>
               </div>
-            </a>
+            </p>
           ))
         }
       </div>
 
 
-      <div className={!isAllFilled ? styles.disabled : styles.button} onClick={() => handleContinue()}>Continue</div>
+      <div className={styles.button} onClick={() => handleContinue()}>Regresar</div>
     </div>
   )
 }
