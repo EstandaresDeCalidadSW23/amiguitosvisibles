@@ -41,6 +41,7 @@ const RegionSelect = (props) => {
             onChange={(e) => setQ3(e.target.value)}
           />
         </div>
+        <div className={styles.space} />
       </div>
       <div className={!isAllFilled ? styles.disabled : styles.button} onClick={() => handleContinue()}>Continue</div>
     </div>
