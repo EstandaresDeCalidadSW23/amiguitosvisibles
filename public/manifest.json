@@ -1,18 +1,17 @@
 {
-  "name": "EcoSnap",
-  "short_name": "EcoSnap",
+  "name": "AmiguitosVisibles",
+  "short_name": "AmiguitosVisibles",
   "icons": [
     {
       "src": "/icon.png",
-      "sizes": "192x192",
+      "sizes": "200x200",
       "type": "image/png"
     },
-
     {
       "src": "/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-			"purpose": "any maskable"
+      "purpose": "any maskable"
     }
   ],
   "theme_color": "#FFFFFF",

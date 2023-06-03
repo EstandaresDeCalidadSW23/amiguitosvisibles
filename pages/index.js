@@ -47,7 +47,7 @@ export default function Home() {
           content="Uniendo lazos perfectos entre mascotas y adoptantes, encontrando la combinación ideal en cada latido de corazón."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ecosnap.vercel.app/" />
+        <meta property="og:url" content="https://amiguitosvisibles.vercel.app/" />
         <meta
           property="og:title"
           content="AmiguitosVisibles - Encuentra tu compañero perfecto, con total transparencia y responsabilidad."
@@ -57,12 +57,6 @@ export default function Home() {
           content="Uniendo lazos perfectos entre mascotas y adoptantes, encontrando la combinación ideal en cada latido de corazón."
         />
         <meta
-          property="og:image"
-          content="https://ecosnap.vercel.app/meta.png"
-        />
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://ecosnap.vercel.app/" />
-        <meta
           property="twitter:title"
           content="AmiguitosVisibles - Encuentra tu compañero perfecto, con total transparencia y responsabilidad."
         />
@@ -70,10 +64,7 @@ export default function Home() {
           property="twitter:description"
           content="Uniendo lazos perfectos entre mascotas y adoptantes, encontrando la combinación ideal en cada latido de corazón."
         />
-        <meta
-          property="twitter:image"
-          content="https://ecosnap.vercel.app/meta.png"
-        />
+
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
