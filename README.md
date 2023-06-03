@@ -10,6 +10,7 @@ Encuentra tu compañero perfecto, con total transparencia y responsabilidad. Uni
 - [Features](#features)
 - [Installation](#installation)
 - [Libraries used](#libraries-used)
+- [credits](#credits)
 
 ## Features
 
@@ -25,3 +26,6 @@ Puedes deployar en Vercel directamente [haciendo click aquí](https://vercel.com
 - [SHYFT](https://docs.shyft.to/) - creacion de NFT's
 - [Solana](https://docs.solana.com/es/) - blockchain
 - [Rust-Anchor](https://www.anchor-lang.com/) - para el smart contract
+
+## Credits
+- [Ilustraciones](https://intercom.help/icons8-7fb7577e8170/en/articles/5534926-universal-multimedia-license-agreement-for-icons8) - Illustration by Dani Grapevine from Ouch!
