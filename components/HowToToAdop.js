@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "./../styles/HowTo.module.css";
+import styles from "./../styles/HowToToAdop.module.css";
 
 const HowTo = (props) => {
   const [searchField, setSearchField] = useState("");
@@ -32,12 +32,12 @@ const HowTo = (props) => {
   };
 
   const handleRefugioOnly = () => {
-    props.setAmiguito(true)
+    props.setAmiguitoForSell(true)
   }
 
   return (
     <div className={props.support ? styles.howtosupport : styles.howto}>
-      <div className={styles.title}>Para adopcion</div>
+      <div className={styles.title}>Dar en adopción</div>
       {/* <div className={styles.input}>
         <img src="search.svg" className={styles.search} />
         {searchField.length > 0 && (

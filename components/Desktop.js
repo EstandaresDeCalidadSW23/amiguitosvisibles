@@ -27,7 +27,7 @@ const Desktop = (props) => {
         {/* <img className={styles.award2} src="./superteamlogo.05a32bce.png" /> */}
       </a>
       <div className={styles.badge}>
-        <img src="logo-with-back.svg" />
+        <img className={styles.image} src="logo-with-back.png" />
         <div className={styles.badgewrap}>
           <div className={styles.name}>Amiguitos Visibles</div>
           <div className={styles.credit}>

@@ -137,6 +137,8 @@
 	box-shadow: 0px 0px 50px rgba(31, 31, 31, 0.1);
 }
 
+.image {}
+
 @media only screen and (max-width: 820px) {
 
 	.credit,

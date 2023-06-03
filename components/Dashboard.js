@@ -105,7 +105,7 @@ const Dashboard = (props) => {
         </div>
       )}
       <div className={styles.howToScroll}>
-        <HowToToAdop support={support} setAmiguito={props.setAmiguito} />
+        <HowToToAdop support={support} setAmiguitoForSell={props.setAmiguitoForSell} />
         <HowTo support={support} setAmiguito={props.setAmiguito} />
       </div>
       <div className={styles.button} onClick={() => props.setRefugios(true)}>

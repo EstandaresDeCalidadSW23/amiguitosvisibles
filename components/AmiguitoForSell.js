@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import styles from "./../styles/Amiguito.module.css";
+import styles from "./../styles/AmiguitoForSell.module.css";
 
 const Amiguito = (props) => {
   const handleChange = (e) => {
@@ -8,7 +8,7 @@ const Amiguito = (props) => {
 
 
   const handleContinue = () => {
-    props.setAmiguito(false)
+    props.setAmiguitoForSell(false)
   }
 
   const handleDonar = () => {
@@ -16,7 +16,7 @@ const Amiguito = (props) => {
 
   return (
     <div className={styles.regionselect}>
-      <div className={styles.title}>Pablo</div>
+      <div className={styles.title}>Pablo necesita ayuda</div>
       <div className={styles.imageContainer}>
         <div
           className={styles.image}
@@ -27,7 +27,7 @@ const Amiguito = (props) => {
       <div className={styles.title4}>Todal de dinero donano por la comunidad ❤️</div>
       <div className={styles.title4}>Todal de dinero donano por la comunidad ❤️</div>
       <div className={styles.containerButton}>
-        <div onClick={handleDonar} className={styles.title3}>Contactar</div>
+        <div onClick={handleDonar} className={styles.title3}>¡Adopción!</div>
       </div>
       <div className={styles.button} onClick={() => handleContinue()}>Regresar</div>
     </div>

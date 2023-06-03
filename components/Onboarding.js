@@ -95,6 +95,7 @@ const Onboarding = (props) => {
             onClick={() => {
               props.setDone(true);
               props.setOn(false);
+              props.setViewInfoUser(true);
             }}
           >
             Start recycling
