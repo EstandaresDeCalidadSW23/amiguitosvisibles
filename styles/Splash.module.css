@@ -151,6 +151,10 @@
 	cursor: pointer;
 }
 
+.clouds2 {
+	width: 100%;
+}
+
 @media only screen and (max-width: 650px) {
 	.trees {
 		bottom: 50px;

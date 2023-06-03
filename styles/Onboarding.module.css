@@ -44,6 +44,15 @@
 	pointer-events: none;
 }
 
+.handright2 {
+	width: 100%;
+	margin: auto;
+}
+
+.trash2 {
+	width: 100%;
+}
+
 .handleft {
 	transform: translateX(-170px) rotate(-15deg);
 	position: absolute;

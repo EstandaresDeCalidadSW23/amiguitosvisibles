@@ -1,9 +1,8 @@
 .regionselect {
 	width: 100%;
 	height: 100%;
-	position: absolute;
-	top: 0px;
-	left: 0px;
+	display: flex;
+	justify-content: center;
 }
 
 /* Info */
@@ -52,18 +51,6 @@
 	text-align: center;
 	width: 100%;
 }
-
-.title12 {
-	font-size: 14px;
-	color: #c4c4c4;
-	text-align: center;
-	width: 100%;
-	margin-top: 30px;
-	margin-bottom: 30px;
-	text-decoration: underline;
-	cursor: pointer;
-}
-
 
 .subtitle {
 	font-size: 14px;

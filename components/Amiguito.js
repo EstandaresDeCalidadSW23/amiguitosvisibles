@@ -1,5 +1,6 @@
-import React, { useMemo, useState } from "react";
+import React from "react";
 import styles from "./../styles/Amiguito.module.css";
+import TimeLine from "./TimeLine";
 
 const Amiguito = (props) => {
   const handleChange = (e) => {
@@ -26,6 +27,9 @@ const Amiguito = (props) => {
       <div className={styles.title4}>Todal de dinero donano por la comunidad ❤️</div>
       <div className={styles.title4}>Todal de dinero donano por la comunidad ❤️</div>
       <div className={styles.title4}>Todal de dinero donano por la comunidad ❤️</div>
+
+      <div className={styles.title12}>mostrar mas informacion</div>
+
       <div className={styles.containerButton}>
         <div onClick={handleDonar} className={styles.title3}>Contactar</div>
       </div>

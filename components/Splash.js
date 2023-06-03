@@ -101,12 +101,7 @@ const Splash = (props) => {
 						AmiguitosVisibles
 					</div>
 					<div className={styles.illustration}>
-						<img className={styles.clouds} src="clouds.svg" />
-						<img className={styles.trees} src="trees.svg" />
-						<img className={styles.person} src="person.svg" />
-						<img className={styles.flower} src="flower.svg" />
-						<img className={styles.trash} src="trash.svg" />
-						<img className={styles.ground} src="ground.svg" />
+						<img className={styles.clouds2} src="images/taxi-quality-time-with-a-dog.png" />
 					</div>
 					<div className={styles.title}>Encuentra tu compañero perfecto, con total transparencia y responsabilidad.</div>
 					<div className={styles.subtitle}>Uniendo lazos perfectos entre mascotas y adoptantes, encontrando la combinación ideal en cada latido de corazón.</div>
