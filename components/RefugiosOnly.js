@@ -1,12 +1,9 @@
 import React, { useMemo, useState } from "react";
 import styles from "./../styles/RefugiosOnly.module.css";
+import { donateToInstitution } from "../api/DonateSol";
 
 const Refugios = (props) => {
-  const [animal, setAnimal] = useState("");
-  const [breed, setBreed] = useState("");
-  const [size, setSize] = useState("");
-  const [temperament, setTemperament] = useState("");
-  const [searchField, setSearchField] = useState("");
+  const [money, setMoney] = useState(0);
 
 
 
@@ -21,15 +18,19 @@ const Refugios = (props) => {
 
   const handleDonate = () => {
     let senderPublicKey = window.localStorage.getItem("publicKey");
-    let receiverPublicKey = props.properties.creators[0].address;
-    let amount = 0.3;
+    let receiverPublicKey = props.clickData.properties.creators[0].address;
+    console.log(senderPublicKey, receiverPublicKey)
+    let amount = money;
     donateToInstitution(senderPublicKey, receiverPublicKey, amount);
   };
 
   return (
     <div className={styles.regionselect}>
-      <div className={styles.title}>{props.clickData ? props.clickData : ""}</div>
-      <input type="number" min={0} className={styles.title2} placeholder="Cantidad a donar" />
+      <div className={styles.title}>{props.clickData?.name ? props.clickData?.name : "Refugio"}</div>
+      <input type="number" min={0} className={styles.title2} placeholder="Cantidad a donar"
+        value={money}
+        onChange={(e) => setMoney(e.target.value)}
+      />
       <div className={styles.containerButton}>
         <div onClick={handleDonate} className={styles.title3}>Donar</div>
       </div>

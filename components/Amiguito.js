@@ -17,18 +17,16 @@ const Amiguito = (props) => {
 
   return (
     <div className={styles.regionselect}>
-      <div className={styles.title}>Pablo</div>
+      <div className={styles.title}>{props.clickData?.name}</div>
       <div className={styles.imageContainer}>
         <div
           className={styles.image}
-          style={{ backgroundImage: "url(https://images.unsplash.com/photo-1635766054474-ebaba5355bd9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80)" }}
+          style={{ backgroundImage: `url(${props.clickData?.image})` }}
         ></div>
       </div>
       <div className={styles.title4}>Todal de dinero donano por la comunidad ❤️</div>
       <div className={styles.title4}>Todal de dinero donano por la comunidad ❤️</div>
-      <div className={styles.title4}>Todal de dinero donano por la comunidad ❤️</div>
-
-      <div className={styles.title12}>mostrar mas informacion</div>
+      <div className={styles.title4}>{props.clickData?.description}</div>
 
       <div className={styles.containerButton}>
         <div onClick={handleDonar} className={styles.title3}>Contactar</div>

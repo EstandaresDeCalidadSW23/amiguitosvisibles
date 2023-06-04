@@ -111,7 +111,7 @@ const Splash = (props) => {
 			}
 			{
 				amiguito &&
-				<Amiguito pred={props.pred} setPred={props.setPred} tensor={props.tensor} setTensor={props.setTensor} setAmiguito={setAmiguito} setRefugiosOnly={setRefugiosOnly} setRefugios={setRefugios} setNum={props.setNum} num={props.num} region={props.region} />
+				<Amiguito pred={props.pred} setPred={props.setPred} tensor={props.tensor} setTensor={props.setTensor} setAmiguito={setAmiguito} setRefugiosOnly={setRefugiosOnly} setRefugios={setRefugios} setNum={props.setNum} num={props.num} region={props.region} clickData={clickData} />
 			}
 			{
 				amiguitoForSell &&

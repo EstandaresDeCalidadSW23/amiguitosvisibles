@@ -52,8 +52,7 @@ const RegionSelect = (props) => {
 		});
 		setLoading(false);
 		const { data: replicateData } = await response.json();
-
-		const url = replicateData.output[0]
+		const url = replicateData.status === "error" ? "https://amiguitosvisibles.vercel.app/download.png" : replicateData.output[0]
 
 		const blob = await fetch(url).then((r) => r.blob());
 

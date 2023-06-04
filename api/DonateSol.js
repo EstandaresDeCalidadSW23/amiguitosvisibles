@@ -22,6 +22,7 @@ export const donateToInstitution = (senderPubKey, receiverPubKey, amount) => {
 	fetch("https://api.shyft.to/sol/v1/wallet/send_sol", requestOptions)
 		.then((response) => response.json())
 		.then((result) => {
+			console.log(result);
 			const encodedTransaction = result.result.encoded_transaction;
 
 			signTransaction(encodedTransaction);

@@ -109,7 +109,6 @@ export default function Home() {
 		getMarketNFT();
 	};
 
-
 	return (
 		<div className={styles.container}>
 			<Head>
@@ -155,12 +154,6 @@ export default function Home() {
 			</Head>
 
 			<main className={styles.main}>
-				<button onClick={handleCreate}>Generar NFT De Cuenta</button>
-				<button onClick={handleCreatePet}>Generar NFT de Mascota</button>
-				<button onClick={handlePress}>Obtener mis NFT</button>
-				<button onClick={handleGetMarket}>Obtener NFT en el mercado</button>
-				<button onClick={handleDonate}>Donar a institucion</button>
-				<input type="file" onChange={handleUploadImage}></input>
 				<Desktop
 					pred={pred}
 					setUserType={setUserType}
