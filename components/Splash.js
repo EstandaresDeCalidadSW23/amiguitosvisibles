@@ -58,18 +58,18 @@ const Splash = (props) => {
 		if (!(done && done2 && !view && !refugios && !settings && !refugiosOnly && !amiguito && !amiguitoForSell && !viewInfoUser)) return;
 		getMarketNFT().then(async (e) => {
 			if (e.success) {
-				// resolve with map metadata_uri
 				const data = await Promise.all(e.result.map(async (e) => {
 					const res = await fetch(e.nft.metadata_uri);
 					const json = await res.json();
-					return {
-						...e,
-						attr: json
-					}
+					return json
 				}))
-
 				console.log(data)
-
+				const pets = data.filter(e => e.attributes.user_type === "pet")
+				const myPets = pets.filter(e => e.properties.creators[0].address === "nNXggn4P96GcuBsMjmyqe9FJWEPqUS641CaBJYXyTLx")
+				const otherPets = pets.filter(e => e.properties.creators[0].address !== "nNXggn4P96GcuBsMjmyqe9FJWEPqUS641CaBJYXyTLx")
+				setListDandoAdopcion()
+				// setListAdoptar(data.filter(e => e.attributes.user_type === "adoptar"))
+				setListRefugios(data.filter(e => e.attributes.user_type === "refugio"))
 			}
 		})
 	}, [done, done2, view, refugios, settings, refugiosOnly, amiguito, amiguitoForSell, viewInfoUser])
@@ -80,6 +80,10 @@ const Splash = (props) => {
 		setDone(true);
 		setReset(false);
 	}
+
+	console.log(listDandoAdopcion,
+		listAdoptar,
+		listRefugios)
 
 	return (
 		<div className={styles.container}>
