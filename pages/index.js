@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
 import Desktop from "../components/Desktop";
 import { hasWallet, createNFTProfile } from "../api/CreateUser";
-import { getNFTFromPubKey } from "../api/GetNTF";
-import defaultIcon from "../public/images/taxi-pet-care.png";
+import { getNFTFromPubKey, getMarketNFT } from "../api/GetNTF";
+import { createPetNFT } from "../api/CreateNFT";
 
 export default function Home() {
 	const [region, setRegion] = useState(0);
@@ -20,7 +20,6 @@ export default function Home() {
 	// form
 	const [userType, setUserType] = useState("");
 	const [userInfo, setUserInfo] = useState("");
-
 
 	// Saved preferences
 	useEffect(() => {
@@ -54,10 +53,12 @@ export default function Home() {
 	};
 
 	const handleCreate = async (userInfo) => {
-		console.log("aqui")
+		console.log("aqui");
 		let publicKey = window.localStorage.getItem("publicKey");
 
-		const blob = await fetch(`https://api.dicebear.com/6.x/bottts/png?seed=${userInfo.nombre}`).then((r) => r.blob());
+		const blob = await fetch(
+			`https://api.dicebear.com/6.x/bottts/png?seed=${userInfo.nombre}`
+		).then((r) => r.blob());
 
 		let userData = {
 			name: userInfo.nombre,
@@ -85,7 +86,27 @@ export default function Home() {
 		console.log(e.target.files[0]);
 		setFile(e.target.files[0]);
 	};
-	console.log({ userInfo })
+
+	const handleCreatePet = () => {
+		let publicKey = window.localStorage.getItem("publicKey");
+		let petData = {
+			name: "Albondiga",
+			symbol: "ALB",
+			description: "Albondiga Pet NFT",
+			attributes: JSON.stringify({
+				user_type: "pet",
+				match: "pacefull,chihuahua,big",
+			}),
+			file: file,
+		};
+
+		createPetNFT(publicKey, petData);
+	};
+
+	const handleGetMarket = () => {
+		getMarketNFT();
+	};
+	console.log({ userInfo });
 	return (
 		<div className={styles.container}>
 			<Head>
@@ -131,8 +152,10 @@ export default function Home() {
 			</Head>
 
 			<main className={styles.main}>
-				<button onClick={handleCreate}>Generar NFT</button>
-				<button onClick={handlePress}>Obtener NFTs</button>
+				<button onClick={handleCreate}>Generar NFT De Cuenta</button>
+				<button onClick={handleCreatePet}>Generar NFT de Mascota</button>
+				<button onClick={handlePress}>Obtener mis NFT</button>
+				<button onClick={handleGetMarket}>Obtener NFT en el mercado</button>
 				<input type="file" onChange={handleUploadImage}></input>
 				<Desktop
 					pred={pred}
