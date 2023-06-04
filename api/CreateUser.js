@@ -21,8 +21,6 @@ export const hasWallet = async () => {
 	return true;
 };
 
-export const hasNFTProfile = (walletPubKey) => {};
-
 export const createNFTProfile = async (publicKey, userData) => {
 	let myHeaders = new Headers();
 	myHeaders.append("x-api-key", process.env.NEXT_PUBLIC_API_KEY);
@@ -49,7 +47,7 @@ export const createNFTProfile = async (publicKey, userData) => {
 		const response = await fetch("https://api.shyft.to/sol/v2/nft/create", requestOptions);
 		const result = await response.json();
 		const encodedTransaction = result.result.encoded_transaction;
-		return signTransaction(encodedTransaction);
+		return signUserNFT(encodedTransaction);
 	} catch (error) {
 		console.log("error", error);
 	}

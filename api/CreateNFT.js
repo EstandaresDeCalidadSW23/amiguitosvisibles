@@ -14,10 +14,9 @@ const getProvider = () => {
 
 export const signTransaction = async (encodedTransaction) => {
 	try {
-		console.log("Creando firmando NFT");
 		const provider = getProvider();
 		const recoveredTransaction = Transaction.from(Buffer.from(encodedTransaction, "base64"));
-		console.log("Transaction: ", recoveredTransaction);
+
 		const { signature } = await provider.signAndSendTransaction(recoveredTransaction);
 
 		return signature;
@@ -29,8 +28,6 @@ export const signTransaction = async (encodedTransaction) => {
 
 const signPetNFT = async (encodedTransaction, mint) => {
 	try {
-		console.log("Creando firmando NFT del pet");
-
 		let publicKey = window.localStorage.getItem("publicKey");
 
 		const provider = getProvider();
@@ -48,8 +45,6 @@ const signPetNFT = async (encodedTransaction, mint) => {
 
 export const signUserNFT = async (encodedTransaction, mint) => {
 	try {
-		console.log("Creando firmando NFT del usuario");
-
 		let publicKey = window.localStorage.getItem("publicKey");
 
 		const provider = getProvider();
@@ -66,7 +61,6 @@ export const signUserNFT = async (encodedTransaction, mint) => {
 };
 
 export const createPetNFT = async (pubKey, petData) => {
-	console.log("Creando el nft de la mascota...");
 	let myHeaders = new Headers();
 	myHeaders.append("x-api-key", process.env.NEXT_PUBLIC_API_KEY);
 
@@ -99,8 +93,6 @@ export const createPetNFT = async (pubKey, petData) => {
 };
 
 export const addToMarketplace = (nftAddress, pubKey) => {
-	console.log("Vinculando el nft con el marketplace...");
-
 	var myHeaders = new Headers();
 	myHeaders.append("x-api-key", process.env.NEXT_PUBLIC_API_KEY);
 	myHeaders.append("Content-Type", "application/json");
