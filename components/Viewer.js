@@ -1,7 +1,6 @@
 import React, { useMemo, useState } from "react";
 import styles from "./../styles/Viewer.module.css";
 import { createNFTProfile } from "../api/CreateUser";
-import axios from "axios";
 
 const handleCreate = async (userInfo, blob) => {
   let publicKey = window.localStorage.getItem("publicKey");
