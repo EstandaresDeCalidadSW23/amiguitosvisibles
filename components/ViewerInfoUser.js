@@ -104,9 +104,12 @@ const RegionSelect = (props) => {
             <option value="quedarme">Quedarme en casa</option>
           </select>
         </div>
+        {
+          loading && <div className={styles.title}>creado nft para que lo presumas con tus amigos, confirma las dos pestañas</div>
+        }
         <div className={styles.space} />
       </div>
-      <div className={!isAllFilled ? styles.disabled : styles.button} onClick={() => handleContinue()}>{!loading ? 'Continuar' : "creado NFT, para que lo presumas con tus amigos...."}</div>
+      <div className={!isAllFilled ? styles.disabled : styles.button} onClick={() => handleContinue()}>{!loading ? 'Continuar' : "creado NFT...."}</div>
     </div>
   )
 }

@@ -107,13 +107,6 @@ export default function Home() {
 	const handleGetMarket = () => {
 		getMarketNFT();
 	};
-	console.log({ userInfo });
-
-	const handleStableDiffusion = () => {
-		getImageFromSD(
-			"adorable puppy, colorful, artistic style, cartoon, neon, 4k, neon background,colorful light, neon stripes, portrait by ginger, clear very height details, octane render"
-		);
-	};
 
 	return (
 		<div className={styles.container}>
@@ -164,7 +157,6 @@ export default function Home() {
 				<button onClick={handleCreatePet}>Generar NFT de Mascota</button>
 				<button onClick={handlePress}>Obtener mis NFT</button>
 				<button onClick={handleGetMarket}>Obtener NFT en el mercado</button>
-				<button onClick={handleStableDiffusion}>Generar Imagen SD</button>
 				<input type="file" onChange={handleUploadImage}></input>
 				<Desktop
 					pred={pred}

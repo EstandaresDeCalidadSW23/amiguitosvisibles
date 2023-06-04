@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./../styles/Splash.module.css"
+import { getMarketNFT } from "./../api/GetNTF";
 import RegionSelect from "./RegionSelect";
 import Onboarding from "./Onboarding";
 import Dashboard from "./Dashboard";
@@ -10,6 +11,8 @@ import Amiguito from "./Amiguito";
 import AmiguitoForSell from "./AmiguitoForSell";
 import Settings from "./Settings";
 import ViewerInfoUser from "./ViewerInfoUser";
+
+
 
 const Splash = (props) => {
 	const [getStarted, setGetStarted] = useState(false);
@@ -25,6 +28,11 @@ const Splash = (props) => {
 	const [settings, setSettings] = useState(false);
 	const [reset, setReset] = useState(false);
 	const [on, setOn] = useState(false);
+
+	// data
+	const [listDandoAdopcion, setListDandoAdopcion] = useState(null);
+	const [listAdoptar, setListAdoptar] = useState(null);
+	const [listRefugios, setListRefugios] = useState(null);
 
 	useEffect(() => {
 		if (props.region > 0) {
@@ -45,6 +53,26 @@ const Splash = (props) => {
 			setOn(false);
 		}
 	}, [done2]);
+
+	useEffect(() => {
+		if (!(done && done2 && !view && !refugios && !settings && !refugiosOnly && !amiguito && !amiguitoForSell && !viewInfoUser)) return;
+		getMarketNFT().then(async (e) => {
+			if (e.success) {
+				// resolve with map metadata_uri
+				const data = await Promise.all(e.result.map(async (e) => {
+					const res = await fetch(e.nft.metadata_uri);
+					const json = await res.json();
+					return {
+						...e,
+						attr: json
+					}
+				}))
+
+				console.log(data)
+
+			}
+		})
+	}, [done, done2, view, refugios, settings, refugiosOnly, amiguito, amiguitoForSell, viewInfoUser])
 
 	const handleRegion = (number) => {
 		props.setRegion(number);
@@ -80,7 +108,7 @@ const Splash = (props) => {
 				<Settings setSettings={setSettings} setReset={setReset} setOn={setOn} />
 			}
 			{done && done2 && !view && !refugios && !settings && !refugiosOnly && !amiguito && !amiguitoForSell && !viewInfoUser &&
-				< Dashboard setSettings={setSettings} setView={setView} setRefugios={setRefugios} setAmiguito={setAmiguito} setAmiguitoForSell={setAmiguitoForSell} num={props.num} setNum={props.setnum} region={props.region} />
+				<Dashboard setSettings={setSettings} setView={setView} setRefugios={setRefugios} setAmiguito={setAmiguito} setAmiguitoForSell={setAmiguitoForSell} num={props.num} setNum={props.setnum} region={props.region} />
 			}
 			{on &&
 				<Onboarding setDone={setDone2} setOn={setOn} setViewInfoUser={setViewInfoUser} />

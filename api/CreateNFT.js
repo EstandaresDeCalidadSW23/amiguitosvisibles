@@ -52,8 +52,7 @@ export const signUserNFT = async (encodedTransaction, mint) => {
 		//Firmar NFT
 		const { signature } = await provider.signAndSendTransaction(recoveredTransaction);
 		//Subir al marketplace
-		addToMarketplace(mint, publicKey);
-		return signature;
+		return addToMarketplace(mint, publicKey);
 	} catch (error) {
 		console.log(error);
 		return null;
@@ -116,7 +115,7 @@ export const addToMarketplace = (nftAddress, pubKey) => {
 		.then((response) => response.json())
 		.then((result) => {
 			const encodedTransaction = result.result.encoded_transaction;
-			signTransaction(encodedTransaction);
+			return signTransaction(encodedTransaction);
 		})
 		.catch((error) => console.log("error", error));
 };
