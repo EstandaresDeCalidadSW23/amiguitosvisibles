@@ -1,4 +1,4 @@
-import { signTransaction } from "./CreateNFT";
+import { signTransaction, signUserNFT } from "./CreateNFT";
 
 export const hasWallet = async () => {
 	//Si phantom no esta instalado
@@ -20,8 +20,6 @@ export const hasWallet = async () => {
 
 	return true;
 };
-
-export const hasNFTProfile = (walletPubKey) => { };
 
 export const createNFTProfile = async (publicKey, userData) => {
 	let myHeaders = new Headers();
@@ -49,9 +47,8 @@ export const createNFTProfile = async (publicKey, userData) => {
 		const response = await fetch("https://api.shyft.to/sol/v2/nft/create", requestOptions);
 		const result = await response.json();
 		const encodedTransaction = result.result.encoded_transaction;
-		return signTransaction(encodedTransaction);
+		return signUserNFT(encodedTransaction);
 	} catch (error) {
 		console.log("error", error);
 	}
-
 };
