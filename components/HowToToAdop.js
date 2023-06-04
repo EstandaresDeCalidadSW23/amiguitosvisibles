@@ -38,45 +38,45 @@ const HowTo = (props) => {
 
   console.log(props.listDandoAdopcion)
 
-  return (
-    <div className={props.support ? styles.howtosupport : styles.howto}>
-      <div className={styles.title}>Dando en adopción</div>
-      {/* <div className={styles.input}>
-        <img src="search.svg" className={styles.search} />
-        {searchField.length > 0 && (
-          <img
-            src="searchclear.svg"
-            onClick={() => setSearchField("")}
-            className={styles.clear}
-          />
-        )}
-        <input
-          placeholder="Search for an item"
-          value={searchField}
-          onChange={handleChange}
+  return (props?.listDandoAdopcion?.length > 0 ? (<div className={props.support ? styles.howtosupport : styles.howto}>
+    <div className={styles.title}>Dando en adopción</div>
+    {/* <div className={styles.input}>
+      <img src="search.svg" className={styles.search} />
+      {searchField.length > 0 && (
+        <img
+          src="searchclear.svg"
+          onClick={() => setSearchField("")}
+          className={styles.clear}
         />
-      </div> */}
-      <div className={props.support ? styles.resultssupport : styles.results}>
-        {
-          props?.listDandoAdopcion?.length > 0 ? (
-            props?.listDandoAdopcion.map((item, i) => (<p
-              onClick={() => handleRefugioOnly(item)}
-              className={styles.result}
-              key={i}
-            >
-              <div
-                className={styles.image}
-                style={{ backgroundImage: "url(" + item.image + ")" }}
-              ></div>
-              <div className={styles.info}>
-                <div className={styles.name}>{item.name}</div>
-                <div className={styles.desc}>{item.description}</div>
-              </div>
-            </p>))
-          ) : null
-        }
-      </div>
+      )}
+      <input
+        placeholder="Search for an item"
+        value={searchField}
+        onChange={handleChange}
+      />
+    </div> */}
+    <div className={props.support ? styles.resultssupport : styles.results}>
+      {
+        props?.listDandoAdopcion?.length > 0 ? (
+          props?.listDandoAdopcion.map((item, i) => (<p
+            onClick={() => handleRefugioOnly(item)}
+            className={styles.result}
+            key={i}
+          >
+            <div
+              className={styles.image}
+              style={{ backgroundImage: "url(" + item.image + ")" }}
+            ></div>
+            <div className={styles.info}>
+              <div className={styles.name}>{item.name}</div>
+              <div className={styles.desc}>{item.description}</div>
+            </div>
+          </p>))
+        ) : null
+      }
     </div>
+  </div>) : null
+
   );
 };
 
