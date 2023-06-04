@@ -1,26 +1,39 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import styles from "./../styles/ViewerInfoUser.module.css";
 
 
-const ESTRUCTURA = {
-  likeBigPet: false,
-  onDogs: false,
-  isIntrovert: false,
-}
 
 const RegionSelect = (props) => {
   const [edad, setEdad] = useState("");
   const [nombre, setNombre] = useState("");
-  const [q1, setQ1] = useState("");
-  const [q2, setQ2] = useState("");
-  const [q3, setQ3] = useState("");
+  const [tel, setTel] = useState("+52");
+  const [loading, setLoading] = useState(false);
+  const [q, setQ] = useState({
+    likeBigPet: "",
+    onDogs: "",
+    isIntrovert: "",
+  });
 
-
-  const handleContinue = () => {
+  const handleContinue = async () => {
+    // props.setUserInfo({
+    //   edad,
+    //   nombre,
+    //   tel,
+    //   match: q
+    // })
+    if (loading) return
+    setLoading(true)
+    await props.handleCreate({
+      edad,
+      nombre,
+      tel,
+      match: q
+    })
+    setLoading(false)
     props.setViewInfoUser(false)
   }
 
-  const isAllFilled = useMemo(() => q1 && q2 && q3, [q1, q2, q3])
+  const isAllFilled = q.likeBigPet && q.onDogs && q.isIntrovert && edad && nombre;
   return (
     <div className={styles.regionselect}>
       <div className={styles.title}>Queremos brindarte la mejor experiencia</div>
@@ -40,35 +53,60 @@ const RegionSelect = (props) => {
             placeholder=""
             value={edad}
             type="number"
+            min={0}
             onChange={(e) => setEdad(e.target.value)}
+          />
+        </div>
+        <div className={styles.title}>Tel:</div>
+        <div className={styles.input}>
+          <input
+            placeholder=""
+            value={tel}
+            onChange={(e) => setTel(e.target.value)}
           />
         </div>
         <div className={styles.title}>Vives en un departamento o casa?</div>
         <div className={styles.input}>
-          <select>
+          <select value={q.likeBigPet} onChange={(e) => {
+            setQ({
+              ...q,
+              likeBigPet: e.target.value
+            })
+          }}>
+            <option value="">Selecciona una opción</option>
             <option value="departamento">Departamento</option>
             <option value="casa">Casa</option>
           </select>
         </div>
         <div className={styles.title}>¿Eres mas de perros o gatos?</div>
         <div className={styles.input}>
-          <input
-            placeholder=""
-            value={q2}
-            onChange={(e) => setQ2(e.target.value)}
-          />
+          <select value={q.onDogs} onChange={(e) => {
+            setQ({
+              ...q,
+              onDogs: e.target.value
+            })
+          }}>
+            <option value="">Selecciona una opción</option>
+            <option value="perros">Perros</option>
+            <option value="gatos">Gatos</option>
+          </select>
         </div>
         <div className={styles.title}>¿Te gusta salir a caminar o prefieres quedarte en casa?</div>
         <div className={styles.input}>
-          <input
-            placeholder=""
-            value={q3}
-            onChange={(e) => setQ3(e.target.value)}
-          />
+          <select value={q.isIntrovert} onChange={(e) => {
+            setQ({
+              ...q,
+              isIntrovert: e.target.value
+            })
+          }}>
+            <option value="">Selecciona una opción</option>
+            <option value="caminar">Caminar</option>
+            <option value="quedarme">Quedarme en casa</option>
+          </select>
         </div>
         <div className={styles.space} />
       </div>
-      <div className={!isAllFilled ? styles.disabled : styles.button} onClick={() => handleContinue()}>Continue</div>
+      <div className={!isAllFilled ? styles.disabled : styles.button} onClick={() => handleContinue()}>{!loading ? 'Continuar' : "creado NFT, para que lo presumas con tus amigos...."}</div>
     </div>
   )
 }

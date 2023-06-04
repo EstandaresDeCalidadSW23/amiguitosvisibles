@@ -17,6 +17,10 @@ export default function Home() {
 	const [pred, setPred] = useState(0);
 	const [file, setFile] = useState(null);
 
+	// form
+	const [userType, setUserType] = useState("");
+	const [userInfo, setUserInfo] = useState("");
+
 	// Saved preferences
 	useEffect(() => {
 		if (typeof window !== "undefined") {
@@ -48,21 +52,29 @@ export default function Home() {
 		//getNFTFromPubKey(publicKey);
 	};
 
-	const handleCreate = () => {
+	const handleCreate = async (userInfo) => {
+		console.log("aqui");
 		let publicKey = window.localStorage.getItem("publicKey");
+
+		const blob = await fetch(
+			`https://api.dicebear.com/6.x/bottts/png?seed=${userInfo.nombre}`
+		).then((r) => r.blob());
+
 		let userData = {
-			name: "Carlollos",
-			symbol: "CAR2",
-			description: "Carlollos Account NFT",
+			name: userInfo.nombre,
+			symbol: "CAR",
+			description: `${userInfo.nombre} NFT`,
 			attributes: JSON.stringify({
-				user_type: "user",
-				match: "pacefull,chihuahua,big",
-				phone: "6391164479",
+				match: Object.values(userInfo.match).join(","),
+				phone: userInfo.tel,
+				edad: userInfo.edad,
+				user_type: userType === 1 ? "user" : "refugio",
 			}),
-			file: file,
+
+			file: blob,
 		};
 
-		createNFTProfile(publicKey, userData);
+		return createNFTProfile(publicKey, userData);
 	};
 
 	const handlePress = () => {
@@ -94,6 +106,7 @@ export default function Home() {
 	const handleGetMarket = () => {
 		getMarketNFT();
 	};
+	console.log({ userInfo });
 	return (
 		<div className={styles.container}>
 			<Head>
@@ -146,6 +159,8 @@ export default function Home() {
 				<input type="file" onChange={handleUploadImage}></input>
 				<Desktop
 					pred={pred}
+					setUserType={setUserType}
+					setUserInfo={setUserInfo}
 					setPred={setPred}
 					tensor={tensor}
 					setTensor={setTensor}
@@ -155,6 +170,7 @@ export default function Home() {
 					onboarding={onboarding}
 					setRegion={setRegion}
 					check={check}
+					handleCreate={handleCreate}
 				/>
 			</main>
 

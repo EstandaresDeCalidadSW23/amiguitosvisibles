@@ -120,6 +120,21 @@
 	font-family: "DM Sans";
 }
 
+.input input {
+	background: #EEEEEE;
+	border-radius: 10px;
+	color: #000;
+	font-size: 16px;
+	padding-left: 35px;
+	padding-right: 35px;
+	height: 41px;
+	line-height: 41px;
+	border: none;
+	outline: none;
+	width: 100%;
+	font-family: "DM Sans";
+}
+
 .formContainer {
 	height: 80vh;
 	overflow: auto;
