@@ -1,28 +1,32 @@
 export const getImageFromSD = async (prompt) => {
+	var myHeaders = new Headers();
+	myHeaders.append("Content-Type", "application/json");
+
 	var raw = JSON.stringify({
-		key: "9DgOiQm41a04dSTVPpbZatZfAtvwp0QAer9ELNQmX03q9uxPO8M4Vcypb2D0",
-		prompt: "adorable puppy, colorful, artistic style, cartoon, neon, 4k, neon background,colorful light, neon stripes, portrait by ginger, clear very height details, octane render",
+		key: process.env.NEXT_PUBLIC_SD_API_KEY,
+		prompt: prompt,
 		negative_prompt: null,
 		width: "512",
 		height: "512",
 		samples: "1",
 		num_inference_steps: "20",
-		safety_checker: "no",
-		enhance_prompt: "yes",
 		seed: null,
 		guidance_scale: 7.5,
+		safety_checker: "yes",
 		multi_lingual: "no",
 		panorama: "no",
 		self_attention: "no",
 		upscale: "no",
-		embeddings_model: null,
+		embeddings_model: "embeddings_model_id",
 		webhook: null,
 		track_id: null,
 	});
 
-	let requestOptions = {
+	var requestOptions = {
 		method: "POST",
+		headers: myHeaders,
 		body: raw,
+		redirect: "follow",
 	};
 
 	try {
