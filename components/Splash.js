@@ -67,8 +67,8 @@ const Splash = (props) => {
 				const pets = data.filter(e => e.attributes.user_type === "pet")
 				const myPets = pets.filter(e => e.properties.creators[0].address === "nNXggn4P96GcuBsMjmyqe9FJWEPqUS641CaBJYXyTLx")
 				const otherPets = pets.filter(e => e.properties.creators[0].address !== "nNXggn4P96GcuBsMjmyqe9FJWEPqUS641CaBJYXyTLx")
-				setListDandoAdopcion()
-				// setListAdoptar(data.filter(e => e.attributes.user_type === "adoptar"))
+				setListDandoAdopcion(myPets)
+				setListAdoptar(otherPets)
 				setListRefugios(data.filter(e => e.attributes.user_type === "refugio"))
 			}
 		})
