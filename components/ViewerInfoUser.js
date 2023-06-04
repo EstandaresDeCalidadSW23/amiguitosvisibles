@@ -2,25 +2,22 @@ import React, { useMemo, useState } from "react";
 import styles from "./../styles/ViewerInfoUser.module.css";
 
 
-const ESTRUCTURA = {
-  likeBigPet: false,
-  onDogs: false,
-  isIntrovert: false,
-}
 
 const RegionSelect = (props) => {
   const [edad, setEdad] = useState("");
   const [nombre, setNombre] = useState("");
-  const [q1, setQ1] = useState("");
-  const [q2, setQ2] = useState("");
-  const [q3, setQ3] = useState("");
+  const [q, setQ] = useState({
+    likeBigPet: "",
+    onDogs: "",
+    isIntrovert: "",
+  });
 
 
   const handleContinue = () => {
     props.setViewInfoUser(false)
   }
 
-  const isAllFilled = useMemo(() => q1 && q2 && q3, [q1, q2, q3])
+  const isAllFilled = useMemo(() => q && q2 && q3, [q, q2, q3])
   return (
     <div className={styles.regionselect}>
       <div className={styles.title}>Queremos brindarte la mejor experiencia</div>
@@ -45,26 +42,37 @@ const RegionSelect = (props) => {
         </div>
         <div className={styles.title}>Vives en un departamento o casa?</div>
         <div className={styles.input}>
-          <select>
+          <select value={q.likeBigPet} onChange={() => {
+            setQ({
+              ...q,
+              likeBigPet: e.target.value
+            })
+          }}>
+            <option value="">Selecciona una opción</option>
             <option value="departamento">Departamento</option>
             <option value="casa">Casa</option>
           </select>
         </div>
         <div className={styles.title}>¿Eres mas de perros o gatos?</div>
         <div className={styles.input}>
-          <input
-            placeholder=""
-            value={q2}
-            onChange={(e) => setQ2(e.target.value)}
-          />
+          <select value={q.onDogs} onChange={() => {
+            setQ({
+              ...q,
+              onDogs: e.target.value
+            })
+          }}>
+            <option value="">Selecciona una opción</option>
+            <option value="perros">Perros</option>
+            <option value="gatos">Gatos</option>
+          </select>
         </div>
         <div className={styles.title}>¿Te gusta salir a caminar o prefieres quedarte en casa?</div>
         <div className={styles.input}>
-          <input
-            placeholder=""
-            value={q3}
-            onChange={(e) => setQ3(e.target.value)}
-          />
+          <select>
+            <option value="">Selecciona una opción</option>
+            <option value="caminar">Caminar</option>
+            <option value="quedarme">Quedarme en casa</option>
+          </select>
         </div>
         <div className={styles.space} />
       </div>
