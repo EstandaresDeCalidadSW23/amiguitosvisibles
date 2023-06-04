@@ -16,6 +16,9 @@ const Desktop = (props) => {
           num={props.num}
           onboarding={props.onboarding}
           setRegion={props.setRegion}
+          setUserInfo={props.setUserInfo}
+          setUserType={props.setUserType}
+          handleCreate={props.handleCreate}
         />
       )}
       <a

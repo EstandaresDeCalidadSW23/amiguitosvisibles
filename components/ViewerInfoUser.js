@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import styles from "./../styles/ViewerInfoUser.module.css";
 
 
@@ -6,18 +6,34 @@ import styles from "./../styles/ViewerInfoUser.module.css";
 const RegionSelect = (props) => {
   const [edad, setEdad] = useState("");
   const [nombre, setNombre] = useState("");
+  const [tel, setTel] = useState("+52");
+  const [loading, setLoading] = useState(false);
   const [q, setQ] = useState({
     likeBigPet: "",
     onDogs: "",
     isIntrovert: "",
   });
 
-
-  const handleContinue = () => {
+  const handleContinue = async () => {
+    // props.setUserInfo({
+    //   edad,
+    //   nombre,
+    //   tel,
+    //   match: q
+    // })
+    if (loading) return
+    setLoading(true)
+    await props.handleCreate({
+      edad,
+      nombre,
+      tel,
+      match: q
+    })
+    setLoading(false)
     props.setViewInfoUser(false)
   }
 
-  const isAllFilled = useMemo(() => q && q2 && q3, [q, q2, q3])
+  const isAllFilled = q.likeBigPet && q.onDogs && q.isIntrovert && edad && nombre;
   return (
     <div className={styles.regionselect}>
       <div className={styles.title}>Queremos brindarte la mejor experiencia</div>
@@ -37,12 +53,21 @@ const RegionSelect = (props) => {
             placeholder=""
             value={edad}
             type="number"
+            min={0}
             onChange={(e) => setEdad(e.target.value)}
+          />
+        </div>
+        <div className={styles.title}>Tel:</div>
+        <div className={styles.input}>
+          <input
+            placeholder=""
+            value={tel}
+            onChange={(e) => setTel(e.target.value)}
           />
         </div>
         <div className={styles.title}>Vives en un departamento o casa?</div>
         <div className={styles.input}>
-          <select value={q.likeBigPet} onChange={() => {
+          <select value={q.likeBigPet} onChange={(e) => {
             setQ({
               ...q,
               likeBigPet: e.target.value
@@ -55,7 +80,7 @@ const RegionSelect = (props) => {
         </div>
         <div className={styles.title}>¿Eres mas de perros o gatos?</div>
         <div className={styles.input}>
-          <select value={q.onDogs} onChange={() => {
+          <select value={q.onDogs} onChange={(e) => {
             setQ({
               ...q,
               onDogs: e.target.value
@@ -68,7 +93,12 @@ const RegionSelect = (props) => {
         </div>
         <div className={styles.title}>¿Te gusta salir a caminar o prefieres quedarte en casa?</div>
         <div className={styles.input}>
-          <select>
+          <select value={q.isIntrovert} onChange={(e) => {
+            setQ({
+              ...q,
+              isIntrovert: e.target.value
+            })
+          }}>
             <option value="">Selecciona una opción</option>
             <option value="caminar">Caminar</option>
             <option value="quedarme">Quedarme en casa</option>
@@ -76,7 +106,7 @@ const RegionSelect = (props) => {
         </div>
         <div className={styles.space} />
       </div>
-      <div className={!isAllFilled ? styles.disabled : styles.button} onClick={() => handleContinue()}>Continue</div>
+      <div className={!isAllFilled ? styles.disabled : styles.button} onClick={() => handleContinue()}>{!loading ? 'Continuar' : "creado NFT, para que lo presumas con tus amigos...."}</div>
     </div>
   )
 }

@@ -60,7 +60,7 @@ const Splash = (props) => {
 			}
 			{
 				viewInfoUser &&
-				<ViewerInfoUser pred={props.pred} setPred={props.setPred} tensor={props.tensor} setTensor={props.setTensor} setViewInfoUser={setViewInfoUser} setNum={props.setNum} num={props.num} region={props.region} />
+				<ViewerInfoUser pred={props.pred} setPred={props.setPred} tensor={props.tensor} setTensor={props.setTensor} setViewInfoUser={setViewInfoUser} setNum={props.setNum} num={props.num} region={props.region} setUserInfo={props.setUserInfo} handleCreate={props.handleCreate} />
 			}
 			{refugios &&
 				<Refugios pred={props.pred} setPred={props.setPred} setRefugios={setRefugios} setRefugiosOnly={setRefugiosOnly} tensor={props.tensor} setTensor={props.setTensor} setView={setView} setNum={props.setNum} num={props.num} region={props.region} />
@@ -89,10 +89,10 @@ const Splash = (props) => {
 				<Onboarding setDone={setDone2} setOn={setOn} setViewInfoUser={setViewInfoUser} />
 			}
 			{reset &&
-				<RegionSelect handleRegion={handleRegion} region={props.region} />
+				<RegionSelect handleRegion={handleRegion} region={props.region} setUserType={props.setUserType} />
 			}
 			{getStarted && !done2 && !done &&
-				<RegionSelect handleRegion={handleRegion} region={props.region} />
+				<RegionSelect handleRegion={handleRegion} region={props.region} setUserType={props.setUserType} />
 			}
 			{!getStarted &&
 				<div className={styles.splash}>

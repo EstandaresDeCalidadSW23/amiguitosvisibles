@@ -21,9 +21,9 @@ export const hasWallet = async () => {
 	return true;
 };
 
-export const hasNFTProfile = (walletPubKey) => {};
+export const hasNFTProfile = (walletPubKey) => { };
 
-export const createNFTProfile = (publicKey, userData) => {
+export const createNFTProfile = async (publicKey, userData) => {
 	let myHeaders = new Headers();
 	myHeaders.append("x-api-key", process.env.NEXT_PUBLIC_API_KEY);
 
@@ -45,11 +45,13 @@ export const createNFTProfile = (publicKey, userData) => {
 		redirect: "follow",
 	};
 
-	fetch("https://api.shyft.to/sol/v2/nft/create", requestOptions)
-		.then((response) => response.json())
-		.then((result) => {
-			const encodedTransaction = result.result.encoded_transaction;
-			signTransaction(encodedTransaction);
-		})
-		.catch((error) => console.log("error", error));
+	try {
+		const response = await fetch("https://api.shyft.to/sol/v2/nft/create", requestOptions);
+		const result = await response.json();
+		const encodedTransaction = result.result.encoded_transaction;
+		return signTransaction(encodedTransaction);
+	} catch (error) {
+		console.log("error", error);
+	}
+
 };

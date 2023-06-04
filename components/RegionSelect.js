@@ -6,6 +6,7 @@ const RegionSelect = (props) => {
 
 	const handleContinue = () => {
 		props.handleRegion(option);
+		props.setUserType(option);
 	}
 
 	return (
