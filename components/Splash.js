@@ -29,6 +29,11 @@ const Splash = (props) => {
 	const [reset, setReset] = useState(false);
 	const [on, setOn] = useState(false);
 
+	// data
+	const [listDandoAdopcion, setListDandoAdopcion] = useState(null);
+	const [listAdoptar, setListAdoptar] = useState(null);
+	const [listRefugios, setListRefugios] = useState(null);
+
 	useEffect(() => {
 		if (props.region > 0) {
 			setDone(true);
@@ -51,10 +56,20 @@ const Splash = (props) => {
 
 	useEffect(() => {
 		if (!(done && done2 && !view && !refugios && !settings && !refugiosOnly && !amiguito && !amiguitoForSell && !viewInfoUser)) return;
-		getMarketNFT().then((e) => {
-			console.log(e)
+		getMarketNFT().then(async (e) => {
 			if (e.success) {
-				console.log(e)
+				// resolve with map metadata_uri
+				const data = await Promise.all(e.result.map(async (e) => {
+					const res = await fetch(e.nft.metadata_uri);
+					const json = await res.json();
+					return {
+						...e,
+						attr: json
+					}
+				}))
+
+				console.log(data)
+
 			}
 		})
 	}, [done, done2, view, refugios, settings, refugiosOnly, amiguito, amiguitoForSell, viewInfoUser])

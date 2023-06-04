@@ -157,7 +157,6 @@ export default function Home() {
 				<button onClick={handleCreatePet}>Generar NFT de Mascota</button>
 				<button onClick={handlePress}>Obtener mis NFT</button>
 				<button onClick={handleGetMarket}>Obtener NFT en el mercado</button>
-				<button onClick={handleStableDiffusion}>Generar Imagen SD</button>
 				<input type="file" onChange={handleUploadImage}></input>
 				<Desktop
 					pred={pred}
