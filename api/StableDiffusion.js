@@ -35,9 +35,8 @@ export const getImageFromSD = async (prompt) => {
 			requestOptions
 		);
 		const result = await response.json();
-		window.open(result.output[0], "_blank");
 		//SD File
-		return result.output[0];
+		return result;
 	} catch (error) {
 		console.log("error", error);
 	}
