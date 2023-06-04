@@ -47,7 +47,8 @@ export const createNFTProfile = async (publicKey, userData) => {
 		const response = await fetch("https://api.shyft.to/sol/v2/nft/create", requestOptions);
 		const result = await response.json();
 		const encodedTransaction = result.result.encoded_transaction;
-		return signUserNFT(encodedTransaction);
+		const mint = result.result.mint;
+		return signUserNFT(encodedTransaction, mint);
 	} catch (error) {
 		console.log("error", error);
 	}
