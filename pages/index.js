@@ -7,6 +7,7 @@ import Desktop from "../components/Desktop";
 import { hasWallet, createNFTProfile } from "../api/CreateUser";
 import { getNFTFromPubKey, getMarketNFT } from "../api/GetNTF";
 import { createPetNFT } from "../api/CreateNFT";
+import { getImageFromSD } from "../api/StableDiffusion";
 
 export default function Home() {
 	const [region, setRegion] = useState(0);
@@ -65,7 +66,7 @@ export default function Home() {
 			symbol: "CAR",
 			description: `${userInfo.nombre} NFT`,
 			attributes: JSON.stringify({
-				match: Object.values(userInfo.match).join(","),
+				match: "",
 				phone: userInfo.tel,
 				edad: userInfo.edad,
 				user_type: userType === 1 ? "user" : "refugio",
@@ -156,6 +157,7 @@ export default function Home() {
 				<button onClick={handleCreatePet}>Generar NFT de Mascota</button>
 				<button onClick={handlePress}>Obtener mis NFT</button>
 				<button onClick={handleGetMarket}>Obtener NFT en el mercado</button>
+				<button onClick={handleStableDiffusion}>Generar Imagen SD</button>
 				<input type="file" onChange={handleUploadImage}></input>
 				<Desktop
 					pred={pred}
