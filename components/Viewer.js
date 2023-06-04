@@ -50,7 +50,6 @@ const RegionSelect = (props) => {
 				},
 			}),
 		});
-		setLoading(false);
 		const { data: replicateData } = await response.json();
 		const url = replicateData.status === "error" ? "https://amiguitosvisibles.vercel.app/download.png" : replicateData.output[0]
 
@@ -64,6 +63,7 @@ const RegionSelect = (props) => {
 			size,
 			temperament,
 		}, blob)
+		setLoading(false);
 
 		props.setView(false)
 	};

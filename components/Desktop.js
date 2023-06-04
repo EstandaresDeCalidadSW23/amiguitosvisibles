@@ -55,13 +55,13 @@ const Desktop = (props) => {
       >
         <img src="github.svg" /> Ver en GitHub
       </a>
-      <a
-        href="https://www.youtube.com/watch?v=qnBb0ckUepc"
-        target="_blank"
-        className={styles.youtube}
-      >
-        <img src="youtube.svg" /> Ver Presentación.
-      </a>
+      {/* <a
+          href="https://www.youtube.com/watch?v="
+          target="_blank"
+          className={styles.youtube}
+        >
+          <img src="youtube.svg" /> Ver Presentación.
+        </a> */}
       <div className={styles.qrcode}>
         <img src="qrcode.png" />
         <span>Escanea para abrir en tu celular</span>

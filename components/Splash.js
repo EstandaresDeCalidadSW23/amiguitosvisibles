@@ -12,7 +12,13 @@ import AmiguitoForSell from "./AmiguitoForSell";
 import Settings from "./Settings";
 import ViewerInfoUser from "./ViewerInfoUser";
 
-
+function wait(ms) {
+	return new Promise(resolve => setTimeout(resolve, ms));
+}
+async function waitInSeconds(seconds) {
+	const milliseconds = seconds * 1000;
+	await wait(milliseconds);
+}
 
 const Splash = (props) => {
 	const [getStarted, setGetStarted] = useState(false);
@@ -35,6 +41,8 @@ const Splash = (props) => {
 
 	const [clickData, setClickData] = useState({});
 
+	const [needData, setNeedData] = useState(true);
+
 	useEffect(() => {
 		if (props.region > 0) {
 			setDone(true);
@@ -56,6 +64,7 @@ const Splash = (props) => {
 	}, [done2]);
 
 	useEffect(() => {
+		// if (!needData) return
 		if (!(done && done2 && !view && !refugios && !settings && !refugiosOnly && !amiguito && !amiguitoForSell && !viewInfoUser)) return;
 		getMarketNFT().then(async (e) => {
 			if (e.success) {
@@ -64,7 +73,6 @@ const Splash = (props) => {
 					const json = await res.json();
 					return json
 				}))
-				console.log(data)
 				let publicKey = window.localStorage.getItem("publicKey");
 				const pets = data.filter(e => e.attributes.user_type === "pet")
 				const myPets = pets.filter(e => e.properties.creators[0].address === publicKey)
@@ -72,11 +80,15 @@ const Splash = (props) => {
 				setListDandoAdopcion(myPets)
 				setListAdoptar(otherPets)
 				setListRefugios(data.filter(e => e.attributes.user_type === "refugio"))
+				setNeedData(false);
 			} else {
-				console.log(e)
+				// wait 5 seconds were
+				console.log("hola")
+				await waitInSeconds(5);
+				setNeedData(true);
 			}
 		})
-	}, [done, done2, view, refugios, settings, refugiosOnly, amiguito, amiguitoForSell, viewInfoUser])
+	}, [done, done2, view, refugios, settings, refugiosOnly, amiguito, amiguitoForSell, viewInfoUser, needData])
 
 	const handleRegion = (number) => {
 		props.setRegion(number);
@@ -84,15 +96,6 @@ const Splash = (props) => {
 		setDone(true);
 		setReset(false);
 	}
-
-	console.log(listDandoAdopcion,
-		listAdoptar,
-		listRefugios)
-
-
-	console.log(listRefugios)
-
-	console.log(clickData)
 
 	return (
 		<div className={styles.container}>
