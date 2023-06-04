@@ -8,6 +8,7 @@ import { hasWallet, createNFTProfile } from "../api/CreateUser";
 import { getNFTFromPubKey, getMarketNFT } from "../api/GetNTF";
 import { createPetNFT } from "../api/CreateNFT";
 import { getImageFromSD } from "../api/StableDiffusion";
+import { donateToInstitution } from "../api/DonateSol";
 
 export default function Home() {
 	const [region, setRegion] = useState(0);
@@ -108,6 +109,12 @@ export default function Home() {
 		getMarketNFT();
 	};
 
+	const handleDonate = () => {
+		let senderPublicKey = window.localStorage.getItem("publicKey");
+		let receiverPublicKey = "vszXJujFiiUmXSrhMn4nfwUbWWhrKkfCjruwzh635ih";
+		let amount = 0.5;
+		donateToInstitution(senderPublicKey, receiverPublicKey, amount);
+	};
 	return (
 		<div className={styles.container}>
 			<Head>
@@ -157,6 +164,7 @@ export default function Home() {
 				<button onClick={handleCreatePet}>Generar NFT de Mascota</button>
 				<button onClick={handlePress}>Obtener mis NFT</button>
 				<button onClick={handleGetMarket}>Obtener NFT en el mercado</button>
+				<button onClick={handleDonate}>Donar a institucion</button>
 				<input type="file" onChange={handleUploadImage}></input>
 				<Desktop
 					pred={pred}
