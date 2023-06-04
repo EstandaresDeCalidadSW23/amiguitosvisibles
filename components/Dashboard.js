@@ -39,6 +39,8 @@ const Dashboard = (props) => {
     }
   }, []);
 
+
+
   const handleSupport = (e) => {
     e.stopPropagation();
     e.preventDefault();

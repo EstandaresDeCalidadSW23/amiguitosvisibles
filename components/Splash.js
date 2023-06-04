@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./../styles/Splash.module.css"
+import { getMarketNFT } from "./../api/GetNTF";
 import RegionSelect from "./RegionSelect";
 import Onboarding from "./Onboarding";
 import Dashboard from "./Dashboard";
@@ -10,6 +11,8 @@ import Amiguito from "./Amiguito";
 import AmiguitoForSell from "./AmiguitoForSell";
 import Settings from "./Settings";
 import ViewerInfoUser from "./ViewerInfoUser";
+
+
 
 const Splash = (props) => {
 	const [getStarted, setGetStarted] = useState(false);
@@ -46,6 +49,16 @@ const Splash = (props) => {
 		}
 	}, [done2]);
 
+	useEffect(() => {
+		if (!(done && done2 && !view && !refugios && !settings && !refugiosOnly && !amiguito && !amiguitoForSell && !viewInfoUser)) return;
+		getMarketNFT().then((e) => {
+			console.log(e)
+			if (e.success) {
+				console.log(e)
+			}
+		})
+	}, [done, done2, view, refugios, settings, refugiosOnly, amiguito, amiguitoForSell, viewInfoUser])
+
 	const handleRegion = (number) => {
 		props.setRegion(number);
 		localStorage.setItem("region", number);
@@ -80,7 +93,7 @@ const Splash = (props) => {
 				<Settings setSettings={setSettings} setReset={setReset} setOn={setOn} />
 			}
 			{done && done2 && !view && !refugios && !settings && !refugiosOnly && !amiguito && !amiguitoForSell && !viewInfoUser &&
-				< Dashboard setSettings={setSettings} setView={setView} setRefugios={setRefugios} setAmiguito={setAmiguito} setAmiguitoForSell={setAmiguitoForSell} num={props.num} setNum={props.setnum} region={props.region} />
+				<Dashboard setSettings={setSettings} setView={setView} setRefugios={setRefugios} setAmiguito={setAmiguito} setAmiguitoForSell={setAmiguitoForSell} num={props.num} setNum={props.setnum} region={props.region} />
 			}
 			{on &&
 				<Onboarding setDone={setDone2} setOn={setOn} setViewInfoUser={setViewInfoUser} />

@@ -16,7 +16,7 @@ export const getNFTFromPubKey = (pubKey) => {
 		.catch((error) => console.log("error", error));
 };
 
-export const getMarketNFT = () => {
+export const getMarketNFT = async () => {
 	var myHeaders = new Headers();
 	myHeaders.append("x-api-key", process.env.NEXT_PUBLIC_API_KEY);
 
@@ -26,11 +26,14 @@ export const getMarketNFT = () => {
 		redirect: "follow",
 	};
 
-	fetch(
-		`https://api.shyft.to/sol/v1/marketplace/active_listings?network=${process.env.NEXT_PUBLIC_SOLANA_NETWORK}&marketplace_address=${process.env.NEXT_PUBLIC_MARKETPLACE_KEY}`,
-		requestOptions
-	)
-		.then((response) => response.json())
-		.then((result) => console.log(result))
-		.catch((error) => console.log("error", error));
+	try {
+		const response = await fetch(
+			`https://api.shyft.to/sol/v1/marketplace/active_listings?network=${process.env.NEXT_PUBLIC_SOLANA_NETWORK}&marketplace_address=${process.env.NEXT_PUBLIC_MARKETPLACE_KEY}`,
+			requestOptions
+		);
+		const result = await response.json();
+		return (result);
+	} catch (error) {
+		console.log("error", error);
+	}
 };

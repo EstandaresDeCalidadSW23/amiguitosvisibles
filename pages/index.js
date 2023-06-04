@@ -106,7 +106,7 @@ export default function Home() {
 	const handleGetMarket = () => {
 		getMarketNFT();
 	};
-	console.log({ userInfo });
+
 	return (
 		<div className={styles.container}>
 			<Head>
