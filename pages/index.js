@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
 import Desktop from "../components/Desktop";
 import { hasWallet, createNFTProfile } from "../api/CreateUser";
-import { getNFTFromPubKey } from "../api/GetNTF";
-import defaultIcon from "../public/images/taxi-pet-care.png";
+import { getNFTFromPubKey, getMarketNFT } from "../api/GetNTF";
+import { createPetNFT } from "../api/CreateNFT";
 
 export default function Home() {
 	const [region, setRegion] = useState(0);
@@ -52,7 +52,7 @@ export default function Home() {
 		let publicKey = window.localStorage.getItem("publicKey");
 		let userData = {
 			name: "Carlollos",
-			symbol: "CAR",
+			symbol: "CAR2",
 			description: "Carlollos Account NFT",
 			attributes: JSON.stringify({
 				user_type: "user",
@@ -73,6 +73,26 @@ export default function Home() {
 	const handleUploadImage = (e) => {
 		console.log(e.target.files[0]);
 		setFile(e.target.files[0]);
+	};
+
+	const handleCreatePet = () => {
+		let publicKey = window.localStorage.getItem("publicKey");
+		let petData = {
+			name: "Albondiga",
+			symbol: "ALB",
+			description: "Albondiga Pet NFT",
+			attributes: JSON.stringify({
+				user_type: "pet",
+				match: "pacefull,chihuahua,big",
+			}),
+			file: file,
+		};
+
+		createPetNFT(publicKey, petData);
+	};
+
+	const handleGetMarket = () => {
+		getMarketNFT();
 	};
 	return (
 		<div className={styles.container}>
@@ -119,8 +139,10 @@ export default function Home() {
 			</Head>
 
 			<main className={styles.main}>
-				<button onClick={handleCreate}>Generar NFT</button>
-				<button onClick={handlePress}>Obtener NFTs</button>
+				<button onClick={handleCreate}>Generar NFT De Cuenta</button>
+				<button onClick={handleCreatePet}>Generar NFT de Mascota</button>
+				<button onClick={handlePress}>Obtener mis NFT</button>
+				<button onClick={handleGetMarket}>Obtener NFT en el mercado</button>
 				<input type="file" onChange={handleUploadImage}></input>
 				<Desktop
 					pred={pred}

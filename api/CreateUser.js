@@ -1,4 +1,4 @@
-import { signTransaction } from "./CreateNFT";
+import { signTransaction, signUserNFT } from "./CreateNFT";
 
 export const hasWallet = async () => {
 	//Si phantom no esta instalado
@@ -49,7 +49,8 @@ export const createNFTProfile = (publicKey, userData) => {
 		.then((response) => response.json())
 		.then((result) => {
 			const encodedTransaction = result.result.encoded_transaction;
-			signTransaction(encodedTransaction);
+			const mint = result.result.mint;
+			signUserNFT(encodedTransaction, mint);
 		})
 		.catch((error) => console.log("error", error));
 };
