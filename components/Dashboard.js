@@ -107,8 +107,8 @@ const Dashboard = (props) => {
         </div>
       )}
       <div className={styles.howToScroll}>
-        <HowToToAdop support={support} setAmiguitoForSell={props.setAmiguitoForSell} />
-        <HowTo support={support} setAmiguito={props.setAmiguito} />
+        <HowToToAdop support={support} setAmiguitoForSell={props.setAmiguitoForSell} listDandoAdopcion={props.listDandoAdopcion} setClickData={props.setClickData} />
+        <HowTo support={support} setAmiguito={props.setAmiguito} listAdoptar={props.listAdoptar} setClickData={props.setClickData} />
       </div>
       <div className={styles.button} onClick={() => props.setRefugios(true)}>
         Donar a un refugio. ❤️

@@ -31,9 +31,12 @@ const HowTo = (props) => {
     setSearchField(e.target.value);
   };
 
-  const handleRefugioOnly = () => {
+  const handleRefugioOnly = (info) => {
+    props.setClickData(info)
     props.setAmiguitoForSell(true)
   }
+
+  console.log(props.listDandoAdopcion)
 
   return (
     <div className={props.support ? styles.howtosupport : styles.howto}>
@@ -54,10 +57,10 @@ const HowTo = (props) => {
         />
       </div> */}
       <div className={props.support ? styles.resultssupport : styles.results}>
-        {filteredItems.length > 0 ? (
-          filteredItems.map((item, i) => (
-            <p
-              onClick={handleRefugioOnly}
+        {
+          props?.listDandoAdopcion?.length > 0 ? (
+            props?.listDandoAdopcion.map((item, i) => (<p
+              onClick={() => handleRefugioOnly(item)}
               className={styles.result}
               key={i}
             >
@@ -69,20 +72,9 @@ const HowTo = (props) => {
                 <div className={styles.name}>{item.name}</div>
                 <div className={styles.desc}>{item.description}</div>
               </div>
-            </p>
-          ))
-        ) : (
-          <a
-            className={styles.noresult}
-            target="_blank"
-            href="https://www.recyclenow.com/recycle-an-item"
-          >
-            <div className={styles.no}>Couldn't find any items</div>
-            <div className={styles.no2}>
-              Click to search for more items on recyclenow.com
-            </div>
-          </a>
-        )}
+            </p>))
+          ) : null
+        }
       </div>
     </div>
   );

@@ -218,7 +218,8 @@ const Refugios = (props) => {
     props.setRefugios(false)
   }
 
-  const handleRefugioOnly = () => {
+  const handleRefugioOnly = (item) => {
+    props.setClickData(item)
     props.setRefugiosOnly(true)
     props.setRefugios(false)
   }
@@ -228,9 +229,9 @@ const Refugios = (props) => {
       <div className={styles.title}>Refugios</div>
       <div className={styles.results}>
         {
-          filteredItems.map((item, i) => (
-            <p
-              onClick={handleRefugioOnly}
+          props.listRefugios.length > 0 ? (
+            props.listRefugios.map((item, i) => (<p
+              onClick={() => handleRefugioOnly(item)}
               className={styles.result}
               key={i}
             >
@@ -242,8 +243,8 @@ const Refugios = (props) => {
                 <div className={styles.name}>{item.name}</div>
                 <div className={styles.desc}>{item.description}</div>
               </div>
-            </p>
-          ))
+            </p>))
+          ) : null
         }
       </div>
 

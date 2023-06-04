@@ -29,10 +29,11 @@ const Splash = (props) => {
 	const [reset, setReset] = useState(false);
 	const [on, setOn] = useState(false);
 
-	// data
-	const [listDandoAdopcion, setListDandoAdopcion] = useState(null);
-	const [listAdoptar, setListAdoptar] = useState(null);
-	const [listRefugios, setListRefugios] = useState(null);
+	const [listDandoAdopcion, setListDandoAdopcion] = useState([]);
+	const [listAdoptar, setListAdoptar] = useState([]);
+	const [listRefugios, setListRefugios] = useState([]);
+
+	const [clickData, setClickData] = useState({});
 
 	useEffect(() => {
 		if (props.region > 0) {
@@ -64,12 +65,15 @@ const Splash = (props) => {
 					return json
 				}))
 				console.log(data)
+				let publicKey = window.localStorage.getItem("publicKey");
 				const pets = data.filter(e => e.attributes.user_type === "pet")
-				const myPets = pets.filter(e => e.properties.creators[0].address === "nNXggn4P96GcuBsMjmyqe9FJWEPqUS641CaBJYXyTLx")
-				const otherPets = pets.filter(e => e.properties.creators[0].address !== "nNXggn4P96GcuBsMjmyqe9FJWEPqUS641CaBJYXyTLx")
+				const myPets = pets.filter(e => e.properties.creators[0].address === publicKey)
+				const otherPets = pets.filter(e => e.properties.creators[0].address !== publicKey)
 				setListDandoAdopcion(myPets)
 				setListAdoptar(otherPets)
 				setListRefugios(data.filter(e => e.attributes.user_type === "refugio"))
+			} else {
+				console.log(e)
 			}
 		})
 	}, [done, done2, view, refugios, settings, refugiosOnly, amiguito, amiguitoForSell, viewInfoUser])
@@ -85,6 +89,11 @@ const Splash = (props) => {
 		listAdoptar,
 		listRefugios)
 
+
+	console.log(listRefugios)
+
+	console.log(clickData)
+
 	return (
 		<div className={styles.container}>
 			{view &&
@@ -95,10 +104,10 @@ const Splash = (props) => {
 				<ViewerInfoUser pred={props.pred} setPred={props.setPred} tensor={props.tensor} setTensor={props.setTensor} setViewInfoUser={setViewInfoUser} setNum={props.setNum} num={props.num} region={props.region} setUserInfo={props.setUserInfo} handleCreate={props.handleCreate} />
 			}
 			{refugios &&
-				<Refugios pred={props.pred} setPred={props.setPred} setRefugios={setRefugios} setRefugiosOnly={setRefugiosOnly} tensor={props.tensor} setTensor={props.setTensor} setView={setView} setNum={props.setNum} num={props.num} region={props.region} />
+				<Refugios pred={props.pred} setPred={props.setPred} setRefugios={setRefugios} setRefugiosOnly={setRefugiosOnly} tensor={props.tensor} setTensor={props.setTensor} setView={setView} setNum={props.setNum} num={props.num} region={props.region} listRefugios={listRefugios} setClickData={setClickData} />
 			}
 			{refugiosOnly &&
-				<RefugiosOnly pred={props.pred} setPred={props.setPred} tensor={props.tensor} setTensor={props.setTensor} setRefugiosOnly={setRefugiosOnly} setRefugios={setRefugios} setNum={props.setNum} num={props.num} region={props.region} />
+				<RefugiosOnly pred={props.pred} setPred={props.setPred} tensor={props.tensor} setTensor={props.setTensor} setRefugiosOnly={setRefugiosOnly} setRefugios={setRefugios} setNum={props.setNum} num={props.num} region={props.region} clickData={clickData} />
 			}
 			{
 				amiguito &&
@@ -112,7 +121,7 @@ const Splash = (props) => {
 				<Settings setSettings={setSettings} setReset={setReset} setOn={setOn} />
 			}
 			{done && done2 && !view && !refugios && !settings && !refugiosOnly && !amiguito && !amiguitoForSell && !viewInfoUser &&
-				<Dashboard setSettings={setSettings} setView={setView} setRefugios={setRefugios} setAmiguito={setAmiguito} setAmiguitoForSell={setAmiguitoForSell} num={props.num} setNum={props.setnum} region={props.region} />
+				<Dashboard setSettings={setSettings} setView={setView} setRefugios={setRefugios} setAmiguito={setAmiguito} setAmiguitoForSell={setAmiguitoForSell} num={props.num} setNum={props.setnum} region={props.region} listDandoAdopcion={listDandoAdopcion} listAdoptar={listAdoptar} setClickData={setClickData} />
 			}
 			{on &&
 				<Onboarding setDone={setDone2} setOn={setOn} setViewInfoUser={setViewInfoUser} />

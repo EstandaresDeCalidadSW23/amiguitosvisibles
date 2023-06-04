@@ -8,6 +8,8 @@ const Refugios = (props) => {
   const [temperament, setTemperament] = useState("");
   const [searchField, setSearchField] = useState("");
 
+
+
   const handleChange = (e) => {
     setSearchField(e.target.value);
   };
@@ -17,17 +19,19 @@ const Refugios = (props) => {
     props.setRefugiosOnly(false)
   }
 
-  const handleDonar = () => {
-
-  }
+  const handleDonate = () => {
+    let senderPublicKey = window.localStorage.getItem("publicKey");
+    let receiverPublicKey = props.properties.creators[0].address;
+    let amount = 0.3;
+    donateToInstitution(senderPublicKey, receiverPublicKey, amount);
+  };
 
   return (
     <div className={styles.regionselect}>
-      <div className={styles.title}>Juntando Huellitas</div>
-      <div className={styles.title2}>$23.23</div>
-      <div className={styles.title4}>Todal de dinero donano por la comunidad ❤️</div>
+      <div className={styles.title}>{props.clickData ? props.clickData : ""}</div>
+      <input type="number" min={0} className={styles.title2} placeholder="Cantidad a donar" />
       <div className={styles.containerButton}>
-        <div onClick={handleDonar} className={styles.title3}>Donar</div>
+        <div onClick={handleDonate} className={styles.title3}>Donar</div>
       </div>
       <div className={styles.button} onClick={() => handleContinue()}>Regresar</div>
     </div>

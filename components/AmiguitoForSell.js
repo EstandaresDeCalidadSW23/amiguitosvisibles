@@ -7,7 +7,7 @@ const Amiguito = (props) => {
   };
 
 
-  const handleContinue = () => {
+  const handleContinue = (info) => {
     props.setAmiguitoForSell(false)
   }
 

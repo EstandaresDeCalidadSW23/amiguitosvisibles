@@ -35,5 +35,6 @@ export const getMarketNFT = async () => {
 		return (result);
 	} catch (error) {
 		console.log("error", error);
+		return (error);
 	}
 };

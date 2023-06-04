@@ -8,10 +8,10 @@ const handleCreate = async (userInfo, blob) => {
 	let userData = {
 		name: userInfo.nombre,
 		symbol: "CAR",
-		description: `${userInfo.nombre} NFT`,
+		description: `${userInfo.description} NFT`,
 		attributes: JSON.stringify({
 			user_type: "pet",
-			match: Object.values(userInfo.match).join(","),
+			match: userInfo.temperament,
 			phone: userInfo.tel,
 			edad: userInfo.edad,
 		}),
@@ -29,7 +29,11 @@ const RegionSelect = (props) => {
 	const [size, setSize] = useState("");
 	const [temperament, setTemperament] = useState("");
 
+	const [loading, setLoading] = useState(false);
+
 	const handleContinue = async () => {
+		if (loading) return;
+		setLoading(true);
 		const response = await fetch("/api/generatesd", {
 			method: "POST",
 			headers: {
@@ -46,13 +50,23 @@ const RegionSelect = (props) => {
 				},
 			}),
 		});
+		setLoading(false);
 		const { data: replicateData } = await response.json();
 
-		console.log(replicateData);
+		const url = replicateData.output[0]
 
-		// await handleCreate(info)
+		const blob = await fetch(url).then((r) => r.blob());
 
-		// props.setView(false)
+		await handleCreate({
+			animal,
+			nombre,
+			description,
+			breed,
+			size,
+			temperament,
+		}, blob)
+
+		props.setView(false)
 	};
 
 	const isAllFilled = useMemo(
@@ -115,11 +129,15 @@ const RegionSelect = (props) => {
 					/>
 				</div>
 			</div>
+			{
+				loading && <div className={styles.title}>creado nft para que lo presumas con tus amigos, confirma las dos pestañas</div>
+			}
+			<div className={styles.space} />
 			<div
 				className={!isAllFilled ? styles.disabled : styles.button}
 				onClick={() => handleContinue()}
 			>
-				Continue
+				{!loading ? 'Continuar' : "creado NFT...."}
 			</div>
 		</div>
 	);
