@@ -15,3 +15,5 @@ export const getNFTFromPubKey = (pubKey) => {
 		.then((result) => console.log(result))
 		.catch((error) => console.log("error", error));
 };
+
+export const getMarketNFT = () => {};

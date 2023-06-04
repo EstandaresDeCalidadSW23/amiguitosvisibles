@@ -15,6 +15,7 @@ export default function Home() {
 	const [num, setNum] = useState(0);
 	const [tensor, setTensor] = useState("");
 	const [pred, setPred] = useState(0);
+	const [file, setFile] = useState(null);
 
 	// Saved preferences
 	useEffect(() => {
@@ -51,19 +52,28 @@ export default function Home() {
 		let publicKey = window.localStorage.getItem("publicKey");
 		let userData = {
 			name: "Carlollos",
-			symbol: "CR",
+			symbol: "CAR",
 			description: "Carlollos Account NFT",
 			attributes: JSON.stringify({
 				user_type: "user",
-				match: "pacefull",
+				match: "pacefull,chihuahua,big",
 				phone: "6391164479",
 			}),
-			file: new File([defaultIcon.src], "Carlollos.jpeg"),
+			file: file,
 		};
 
 		createNFTProfile(publicKey, userData);
 	};
 
+	const handlePress = () => {
+		let publicKey = window.localStorage.getItem("publicKey");
+		getNFTFromPubKey(publicKey);
+	};
+
+	const handleUploadImage = (e) => {
+		console.log(e.target.files[0]);
+		setFile(e.target.files[0]);
+	};
 	return (
 		<div className={styles.container}>
 			<Head>
@@ -109,7 +119,9 @@ export default function Home() {
 			</Head>
 
 			<main className={styles.main}>
-				<button onClick={handleCreate}>Clickeame</button>
+				<button onClick={handleCreate}>Generar NFT</button>
+				<button onClick={handlePress}>Obtener NFTs</button>
+				<input type="file" onChange={handleUploadImage}></input>
 				<Desktop
 					pred={pred}
 					setPred={setPred}

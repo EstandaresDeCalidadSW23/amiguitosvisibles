@@ -1,17 +1,24 @@
-import { clusterApiUrl, Transaction, Connection } from "@solana/web3.js";
+import { Transaction } from "@solana/web3.js";
+
+const getProvider = () => {
+	if ("phantom" in window) {
+		const provider = window.phantom?.solana;
+
+		if (provider?.isPhantom) {
+			return provider;
+		}
+	}
+
+	window.open("https://phantom.app/", "_blank");
+};
 
 export const signTransaction = async (encodedTransaction) => {
 	try {
-		const connection = new Connection(
-			clusterApiUrl(process.env.NEXT_PUBLIC_SOLANA_NETWORK),
-			"confirmed"
-		);
-
+		const provider = getProvider();
 		const recoveredTransaction = Transaction.from(Buffer.from(encodedTransaction, "base64"));
+		const { signature } = await provider.signAndSendTransaction(recoveredTransaction);
 
-		const txnSignature = await connection.sendRawTransaction(recoveredTransaction.serialize());
-
-		return txnSignature;
+		return signature;
 	} catch (error) {
 		console.log(error);
 	}
