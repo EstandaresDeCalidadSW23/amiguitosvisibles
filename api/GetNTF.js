@@ -16,7 +16,16 @@ export const getNFTFromPubKey = (pubKey) => {
 		.catch((error) => console.log("error", error));
 };
 
+function wait(ms) {
+	return new Promise(resolve => setTimeout(resolve, ms));
+}
+async function waitInSeconds(seconds) {
+	const milliseconds = seconds * 1000;
+	await wait(milliseconds);
+}
+
 export const getMarketNFT = async () => {
+	await waitInSeconds(4);
 	var myHeaders = new Headers();
 	myHeaders.append("x-api-key", process.env.NEXT_PUBLIC_API_KEY);
 

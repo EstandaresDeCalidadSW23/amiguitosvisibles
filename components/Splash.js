@@ -12,14 +12,6 @@ import AmiguitoForSell from "./AmiguitoForSell";
 import Settings from "./Settings";
 import ViewerInfoUser from "./ViewerInfoUser";
 
-function wait(ms) {
-	return new Promise(resolve => setTimeout(resolve, ms));
-}
-async function waitInSeconds(seconds) {
-	const milliseconds = seconds * 1000;
-	await wait(milliseconds);
-}
-
 const Splash = (props) => {
 	const [getStarted, setGetStarted] = useState(false);
 	const [done, setDone] = useState(false);
@@ -66,6 +58,7 @@ const Splash = (props) => {
 	useEffect(() => {
 		// if (!needData) return
 		if (!(done && done2 && !view && !refugios && !settings && !refugiosOnly && !amiguito && !amiguitoForSell && !viewInfoUser)) return;
+
 		getMarketNFT().then(async (e) => {
 			if (e.success) {
 				const data = await Promise.all(e.result.map(async (e) => {
@@ -84,7 +77,6 @@ const Splash = (props) => {
 			} else {
 				// wait 5 seconds were
 				console.log("hola")
-				await waitInSeconds(5);
 				setNeedData(true);
 			}
 		})
