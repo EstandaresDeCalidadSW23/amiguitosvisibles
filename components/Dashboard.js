@@ -111,7 +111,7 @@ const Dashboard = (props) => {
         <HowTo support={support} setAmiguito={props.setAmiguito} listAdoptar={props.listAdoptar} setClickData={props.setClickData} />
       </div>
       <div className={styles.button} onClick={() => props.setRefugios(true)}>
-        Donar a un refugio. ❤️
+      ¡Tirar el hueso de la solidaridad al refugio! ❤️
       </div>
     </div>
   );
