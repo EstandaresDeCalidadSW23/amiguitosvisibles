@@ -32,3 +32,4 @@ Puedes deployar en Vercel directamente [haciendo click aquí](https://vercel.com
 
 ## Collaborators
 - Benjamin Cisneros - @bcisneros
+- Carlos Moriel - @CarlosMoriel
