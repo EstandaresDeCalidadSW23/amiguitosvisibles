@@ -34,4 +34,5 @@ Puedes deployar en Vercel directamente [haciendo click aquí](https://vercel.com
 - Benjamin Cisneros - @bcisneros
 - Carlos Moriel - @CarlosMoriel
 - Hugo Hernández - @Hugo-Hdez
+- Estrella De La Torre - @Estrelladelatorre1
 
