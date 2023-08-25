@@ -44,11 +44,11 @@ Puedes deployar en Vercel directamente [haciendo click aquí](https://vercel.com
 ## Antes de Empezar
 Este proyecto se basa en la blockchain por lo que vamos a necesitar configurar un par de temas antes de poder utilizar la aplicación
 
-Necesitamos una wallet (Cartera digital) para poder tener hacer transacciones 
+Necesitamos una wallet (Cartera digital) para poder hacer transacciones.
 
 Para instalar la wallet tendremos que seguir los siguientes pasos:
 
-- Instalamos la extinción del navegador (funciona para cualquier navegador basado en Chrome) 
+- Instalamos la extensión del navegador (funciona para cualquier navegador basado en Chrome) 
 
 link de descarga: https://chrome.google.com/webstore/detail/phantom/bfnaelmomeimhlpmgjnjophhpkkoljpa
 
@@ -56,7 +56,7 @@ link de descarga: https://chrome.google.com/webstore/detail/phantom/bfnaelmomeim
 
 Para verificar la instalación damos clic en nuestras extensiones del navegador 
 
-![Extenciones](docs-images/2.png)
+![Extensiones](docs-images/2.png)
 
 - Una vez instalada la extensión tenemos que crear una wallet, damos clic en la extensión de Phantom y se nos abrirá una ventana del navegador
 
@@ -68,7 +68,7 @@ Para verificar la instalación damos clic en nuestras extensiones del navegador
 
 ![Password](docs-images/image.png)
 
-- IMPORTANTE para asegurar la billetera tenemos que guardar ya sea en una foto o en un archivo de texto la Fase Secreta de recuperación, es muy importante guardarla bien para que no se nos pierda la wallet 
+> IMPORTANTE para asegurar la billetera tenemos que guardar ya sea en una foto o en un archivo de texto la Fase Secreta de recuperación, es muy importante guardarla bien para que no se nos pierda la wallet  
 
 ![Backup](docs-images/5.png)
 
@@ -105,7 +105,7 @@ Una vez descargado node utilizaremos un comando para instalar un paquete globalm
 
 `npm i -g yarn`
 
-una vez instalado yarn ejecutaremos un comando dentro del proyecto de amiguitos visibles para ello podemos usar los comandos de navegación básicos en Windows (cd, ls)
+Una vez instalado yarn ejecutaremos un comando dentro del proyecto de amiguitos visibles para ello podemos usar los comandos de navegación básicos en Windows (cd, ls)
 
 ![Install yarn](docs-images/11.png)
 
