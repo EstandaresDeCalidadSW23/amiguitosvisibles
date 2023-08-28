@@ -35,6 +35,7 @@ Puedes deployar en Vercel directamente [haciendo click aquí](https://vercel.com
 - Carlos Moriel - @CarlosMoriel
 - Hugo Hernández - @Hugo-Hdez
 - Estrella De La Torre - @Estrelladelatorre1
+
 - Daniel Derma - @danielderma
 - Karina Beltran Sanchez - @karibeltran
 - Luis Carlos Hernandez - @luisher25san
