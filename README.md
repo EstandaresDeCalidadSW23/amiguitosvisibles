@@ -39,4 +39,6 @@ Puedes deployar en Vercel directamente [haciendo click aquí](https://vercel.com
 - Karina Beltran Sanchez - @karibeltran
 - Luis Carlos Hernandez - @luisher25san
 - Jair Méndez - @jairmendez43
+
+
 - Gabriel Barraza - @wolfgabo
